@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Roadmap | BuyETHaddress - ENSv2 Ready</title>
+<meta name="description" content="BuyETHaddress roadmap: ENSv2 migration, direct ENS App integration, and subdomain leasing infrastructure across 1600+ domains.">
+<style>
+:root{ --bg:#0b0c10; --card:#12151d; --edge:#1c2230; --text:#e6e6e6; --muted:#9aa0a6; --accent:#3b82f6; }
+*{box-sizing:border-box} 
+html,body{height:100%;margin:0;padding:0} 
+body{background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+/* Navigation */
+nav{background:#0d0f14;border-bottom:1px solid #1a1f2e;padding:0}
+nav .wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;padding:16px 20px}
+nav a{color:#b8c5d6;text-decoration:none;font-weight:600;font-size:16px;transition:color 0.2s,transform 0.2s;display:inline-block}
+nav a:hover{color:#fff;transform:translateY(-2px)}
+nav a.active{color:var(--accent);font-weight:700}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:#0b0c10;border-bottom:1px solid #161c27}
+.wrap{max-width:1200px;margin:0 auto;padding:18px 20px}
+header .wrap{display:flex;flex-direction:column;align-items:center}
+
+/* Badge */
+.badge{display:flex;align-items:center;gap:8px;background:#141a1f;border:1px solid #22304a;color:#fff;padding:6px 10px;border-radius:999px}
+.badge .check{display:inline-block;width:18px;height:18px;border-radius:50%;background:#22c55e;position:relative}
+.badge .check:after{content:'';position:absolute;left:3px;top:3px;width:9px;height:5px;border:2px solid #0b0c10;border-top:none;border-right:none;transform:rotate(-45deg)}
+.badge .vbold{font-weight:800}
+
+/* Brand block */
+.brandblock{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+
+/* Lease callout */
+.lease-callout{font-size:40px;font-style:italic;background:linear-gradient(90deg,#5bb1ff,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600;margin-top:-4px}
+
+/* Main content */
+main{padding:40px 20px 80px}
+main .wrap{max-width:900px}
+
+/* Content sections */
+.content-section{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:30px;margin-bottom:30px}
+.content-section h2{color:var(--accent);margin:0 0 20px;font-size:1.8rem}
+.content-section h3{color:#fff;margin:30px 0 15px;font-size:1.3rem}
+.content-section p{color:var(--text);line-height:1.8;margin:0 0 15px}
+.content-section ul{color:var(--text);line-height:1.8;margin:0 0 15px;padding-left:25px}
+.content-section li{margin-bottom:8px}
+.content-section strong{color:var(--accent)}
+
+/* Animations */
+@keyframes gradientShift {0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+@keyframes gradientShiftVertical {0%{background-position:center 0%}50%{background-position:center 100%}100%{background-position:center 0%}}
+
+/* Footer */
+footer{background:var(--card);border-top:1px solid var(--edge);padding:40px 20px;margin-top:60px}
+footer .wrap{max-width:900px;text-align:center}
+footer h3{color:var(--accent);margin:0 0 16px}
+footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
+
+.phase-container {
+  display: grid;
+  gap: 30px;
+  margin-top: 30px;
+}
+.phase-card {
+  background: var(--card);
+  border: 2px solid var(--edge);
+  border-radius: 14px;
+  padding: 30px;
+  position: relative;
+  transition: all 0.3s;
+}
+.phase-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(59,130,246,0.2);
+}
+.phase-card.complete {
+  border-color: #22c55e;
+  background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(59,130,246,0.05));
+}
+.phase-card.active {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.1));
+  box-shadow: 0 8px 32px rgba(59,130,246,0.3);
+}
+.phase-card.soon {
+  border-color: #8b5cf6;
+  background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(192,192,192,0.05));
+}
+.phase-card.future {
+  border-color: #4b5563;
+  opacity: 0.85;
+}
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.phase-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.phase-badge.complete {
+  background: #22c55e;
+  color: #000;
+}
+.phase-badge.active {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: #fff;
+}
+.phase-badge.soon {
+  background: linear-gradient(135deg, #8b5cf6, #6b21a8);
+  color: #fff;
+}
+.phase-badge.future {
+  background: #374151;
+  color: #9ca3af;
+}
+.phase-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+.phase-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+.phase-content li {
+  padding-left: 30px;
+  position: relative;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.phase-content li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 18px;
+}
+.phase-note {
+  background: rgba(59,130,246,0.1);
+  border-left: 3px solid var(--accent);
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--muted);
+}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="suites.html" class="nav-suites">Suites</a>
+    <a href="subdomain-leasing.html" class="nav-subdomain">Subdomain Leasing</a>
+    <a href="featured.html" class="nav-featured">Featured Names</a>
+    <a href="faq.html" class="nav-faq">FAQ</a>
+    <a href="mission.html" class="nav-mission">Mission</a>
+    <a href="roadmap.html" class="nav-roadmap active">Roadmap</a>
+    <a href="about.html" class="nav-about">About</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="brandblock">
+      <div style="position:relative;text-align:center">
+        <div class="badge" title="Hardware wallet protected" style="position:absolute;right:0;top:160px">
+          <span class="check"></span>
+          <div>
+            <div class="vbold">Verified</div>
+            <div style="color:#ffffff">Secured by Ledger</div>
+          </div>
+        </div>
+        <div>
+          <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:5.5rem;letter-spacing:0.5px;color:white;margin:0">
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">B</span><span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">uy</span>
+            <span style="background:linear-gradient(180deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:100% 200%;animation:gradientShiftVertical 3s ease-in-out infinite">ETH</span>
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">address</span>
+          </h1>
+          <div class="lease-callout">or Lease!</div>
+          <div style="font-size:18px;color:#22c55e;font-weight:700;margin-top:4px;text-shadow:0 0 8px rgba(34,197,94,0.3)">Never Connect Your Wallet</div>
+        </div>
+
+      </div>
+      <div class="tagline">Own your identity. Own your name.</div>
+      <div style="margin:20px 0">
+        <div style="color:#cfe1ff;font-size:15px;margin-bottom:12px">📧 <strong>Contact us for domains or direct communication</strong></div>
+        <div style="display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">
+          <a href="mailto:buyethaddress@outlook.com" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s">
+            <span>📧</span>
+            <span>buyethaddress@outlook.com</span>
+          </a>
+          <a href="https://discord.gg/n28Q5Y9h" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#5865F2;color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid#4752C4;transition:all 0.2s">
+            <span>💬</span>
+            <span>Join Discord</span>
+          </a>
+        </div>
+        <div style="color:#9aa0a6;font-size:12px">⚠️ Emails with attachments will be deleted.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <div class="content-section">
+    <h2>🚀 The ENSv2 Transformation</h2>
+    <p>ENSv2 and Namechain launch in Q1 2026, fundamentally changing how ENS domains work. Each .eth name gets its own registry contract, enabling trustless subdomain leasing with custom permissions and 99% lower gas costs on Layer 2.</p>
+    <p><strong>Our Strategy:</strong> Build recurring revenue through subdomain leasing across 1600+ premium domains, with direct ENS App integration for seamless on-chain transactions when ENSv2 launches.</p>
+  </div>
+
+  <div class="phase-container">
+
+    <!-- PHASE 1: COMPLETED -->
+    <div class="phase-card complete">
+      <div class="phase-header">
+        <span class="phase-badge complete">✓ COMPLETED</span>
+        <h3 class="phase-title">Phase 1: Foundation Built</h3>
+      </div>
+      <p><strong>Timeline:</strong> 2025 — Completed</p>
+      <ul>
+        <li><strong>Portfolio Assembly:</strong> Built over 1,400 premium Real World Utility ENS domains across infrastructure categories</li>
+        <li><strong>Strategic Focus Areas:</strong> AI/Agents, DeFi, Validators, RWA, Infrastructure, Compliance, Employee Management, Retirement</li>
+        <li><strong>Security Infrastructure:</strong> Hardware wallet protection, recovery systems, gas optimization strategies</li>
+        <li><strong>Brand Establishment:</strong> ensv2marketplace.com website, email branding across ecosystem</li>
+        <li><strong>OpenSea Listings:</strong> Systematic listing deployment across portfolio with standardized pricing</li>
+        <li><strong>Billboard Strategy:</strong> Domain avatars advertising across ENS ecosystem for visibility</li>
+        <li><strong>Market Intelligence:</strong> Deep knowledge of ENS trends, undervalued categories, emerging narratives</li>
+        <li><strong>Renewal Management:</strong> Sustainable portfolio management with strategic pruning and optimization</li>
+      </ul>
+      <div class="phase-note" style="background:rgba(34,197,94,0.1);border-left:3px solid #22c55e">
+        <strong style="color:#22c55e">Foundation Complete:</strong> Portfolio assembled. Infrastructure ready. Now positioned for ENSv2 migration and subdomain leasing empire launch in Q1 2026.
+      </div>
+    </div>
+
+    <!-- PHASE 2: Q1 2026 -->
+    <div class="phase-card active">
+      <div class="phase-header">
+        <span class="phase-badge active">⚡ Q1/Q2 2026</span>
+        <h3 class="phase-title">Phase 2: ENSv2 Migration & Direct Marketplace</h3>
+      </div>
+      <div class="phase-content">
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">ENSv2 launches in Q1 2026. When it does, BuyETHaddress becomes a streamlined marketplace with direct ENS App integration for instant transactions.</p>
+        <ul>
+          <li><strong>ENSv2 Migration</strong> - Migrate 1600+ domain portfolio to Namechain L2, unlocking subdomain leasing capabilities and 99% lower gas costs</li>
+          <li><strong>Subdomain Leasing Infrastructure</strong> - Deploy automated subdomain leasing with ENSv2 native controls and stablecoin pricing</li>
+          <li><strong>Direct ENS Integration</strong> - Every domain listing gets a button linking directly to ENS App for instant purchase/transfer - no middleman, no custody, pure on-chain transactions</li>
+          <li><strong>OpenSea Integration Maintained</strong> - Keep OpenSea links for buyers who prefer that platform, giving users choice in how they transact</li>
+          <li><strong>Solo Operation Focus</strong> - No memberships, no other sellers - just one curated portfolio optimized for subdomain leasing and direct sales</li>
+          <li><strong>Streamlined Experience</strong> - Browse domains → Click ENS button → Complete transaction directly through ENS App. Simple, trustless, efficient.</li>
+        </ul>
+        <div class="phase-note">
+          <strong>Direct to ENS:</strong> No membership platforms needed. BuyETHaddress remains a focused, single-operator marketplace with direct ENS App integration when ENSv2 launches. Browse, click, buy - all through official ENS infrastructure.
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3: Q2-Q3 2026 -->
+    <div class="phase-card future">
+      <div class="phase-header">
+        <span class="phase-badge future">🔮 FUTURE</span>
+        <h3 class="phase-title">Phase 3: Full Marketplace Infrastructure</h3>
+      </div>
+      <div class="phase-content">
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">Transform into a full-service ENS marketplace with internal transaction handling and dual revenue streams through sales commissions and leasing directory memberships.</p>
+        <ul>
+          <li><strong>Domain Sales Marketplace</strong> - Open platform for public sellers to list ENS domains with quality approval standards maintaining Real World Utility focus</li>
+          <li><strong>3% Sales Commission Model</strong> - Platform takes 3% commission on completed domain sales, handling transaction coordination, escrow verification, and transfer execution through internal admin systems</li>
+          <li><strong>Subdomain Leasing Directory</strong> - Membership-based advertising platform where domain owners pay monthly/annual fees to promote their domains as available for subdomain leasing (e.g., "defiprotocol.eth - Subdomains Available")</li>
+          <li><strong>Admin Dashboard Infrastructure</strong> - Custom-built backend for managing sales listings, processing transactions, coordinating transfers, tracking commissions, and administering leasing directory memberships</li>
+          <li><strong>Internal Transaction Handling</strong> - Manage full sales cycle in-house: listing verification → buyer inquiry → payment coordination → ENS transfer → commission settlement. OpenSea-style process but proprietary infrastructure.</li>
+          <li><strong>Dual Revenue Architecture</strong> - Commission-based sales revenue from marketplace transactions + recurring membership fees from leasing directory advertising subscriptions</li>
+          <li><strong>Etherscan Verification Layer</strong> - On-chain ownership verification for all listings preventing fake domains and maintaining trust through transparent blockchain validation</li>
+          <li><strong>Quality Control System</strong> - Manual approval process for both sales listings and leasing directory applicants ensuring platform maintains high-utility domain standards</li>
+        </ul>
+        <div class="phase-note">
+          <strong>Technical Implementation:</strong> Full marketplace requires custom transaction coordination systems, payment processing infrastructure, escrow-style holding mechanisms, automated commission tracking, membership billing integration, and admin tooling for managing multi-party transactions. Leasing directory operates separately as advertising platform - members manage their own subdomain leasing, platform provides visibility.
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 4: Q4 2026 -->
+    <div class="phase-card future">
+      <div class="phase-header">
+        <span class="phase-badge future">🔮 FUTURE</span>
+        <h3 class="phase-title">Phase 4: Platform Enhancement & Market Intelligence</h3>
+      </div>
+      <div class="phase-content">
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">Enhance the directory with data-driven features that help members understand the market and make better decisions.</p>
+        <ul>
+          <li><strong>Advanced Analytics Dashboard</strong> - Members see view counts per listing, trending categories, peak traffic times, and total directory engagement</li>
+          <li><strong>AI Price Estimator</strong> - Members input their domain and get pricing suggestions based on similar names in the system—category, length, word structure, recent sales data</li>
+          <li><strong>Market Intelligence</strong> - Study maps showing what domains have sold, sale prices, active leasing activity, price ranges by category</li>
+          <li><strong>Etherscan Verification</strong> - Direct Etherscan links on every listing to verify domain ownership on-chain, eliminating any possibility of fake listings</li>
+          <li><strong>Featured Placement Options</strong> - Premium ad slots at top of high-traffic categories for members who want maximum visibility</li>
+          <li><strong>Marketing Expansion</strong> - SEO optimization, social media presence, partnerships with ENS communities to drive qualified buyer traffic</li>
+          <li><strong>Platform Refinement</strong> - Improved search, better mobile experience, faster load times, enhanced category filtering</li>
+        </ul>
+        <div class="phase-note">
+          <strong>Platform Purpose:</strong> Membership fees fund advertising and platform development. More traffic and better data = more visibility for everyone's domains and subdomain leasing opportunities. We're the marketing engine with market intelligence.
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 5: 2027+ -->
+    <div class="phase-card future">
+      <div class="phase-header">
+        <span class="phase-badge future">✨ 2027+</span>
+        <h3 class="phase-title">Phase 5: The ENS Infrastructure Standard</h3>
+      </div>
+      <div class="phase-content">
+        <p style="font-size:16px;line-height:1.8;margin-bottom:20px">ENSv2Marketplace evolves from directory to ecosystem hub—the trusted standard for Real World Utility ENS infrastructure discovery and validation.</p>
+        <ul>
+          <li><strong>Market Authority</strong> - Recognition as the authoritative source for vetted, production-ready ENS infrastructure names</li>
+          <li><strong>Advanced Intelligence</strong> - AI-powered valuation models, market trend analysis, and pricing recommendations for members</li>
+          <li><strong>Institutional Integration</strong> - Enterprise partnerships and bulk acquisition channels for companies building on ENS</li>
+          <li><strong>Cross-Chain Expansion</strong> - As ENS extends to other L2s and chains, marketplace adapts to showcase multi-chain capabilities</li>
+          <li><strong>Developer Ecosystem</strong> - APIs and tools for building on top of curated ENS infrastructure</li>
+        </ul>
+        <div class="phase-note">
+          <strong>The Long Game:</strong> We're not building a marketplace—we're building the trusted layer between quality ENS infrastructure and the people who need it. As ENSv2 matures and subdomain leasing becomes standard, we're positioned as the discovery engine powering it all.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="content-section" style="margin-top:40px">
+    <h2>💡 Strategic Principles</h2>
+    <ul>
+      <li><strong>Direct ENS Integration</strong> - When ENSv2 launches, every domain gets direct ENS App purchase links. No custody, no middlemen, pure on-chain transactions.</li>
+      <li><strong>Subdomain Leasing Specialists</strong> - Focus on building recurring revenue through ENSv2 native subdomain leasing infrastructure across 1600+ domains.</li>
+      <li><strong>Quality Over Quantity</strong> - Curated portfolio focused on Real World Utility. Infrastructure domains that developers and institutions actually need.</li>
+      <li><strong>Solo Operation</strong> - No marketplace platform with memberships. BuyETHaddress remains a focused, single-operator portfolio optimized for direct sales and subdomain leasing.</li>
+      <li><strong>User Choice</strong> - Maintain both ENS App links (direct) and OpenSea links (alternative) so buyers can choose their preferred transaction method.</li>
+    </ul>
+  </div>
+
+</div>
+</main>
+
+<footer>
+<div class="wrap">
+  <h3>ENSv2 Ready</h3>
+  <p>BuyETHaddress: 1600+ premium ENS domains focused on subdomain leasing and direct sales. When ENSv2 launches Q1/Q2 2026, every domain will have direct ENS App integration.</p>
+  <div style="color:#9aa0a6;font-size:13px;margin-top:20px">
+    <p>📧 Contact: <a href="mailto:buyethaddress@outlook.com" style="color:var(--accent);text-decoration:none"><span class=

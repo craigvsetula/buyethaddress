@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Domain Bundles - BuyETHaddress | Curated ENS Packages</title>
+<meta name="description" content="Curated ENS domain bundles for complete infrastructure. Get everything you need for validators, AI agents, DeFi platforms, and more.">
+<style>
+:root{ --bg:#0b0c10; --card:#12151d; --edge:#1c2230; --text:#e6e6e6; --muted:#9aa0a6; --accent:#3b82f6; --premium:#c0c0c0; --premiumDark:#8c8c8c; --brandFrom:#5bb1ff; --brandTo:#8b5cf6; --glow:#6df7ff; }
+*{box-sizing:border-box} 
+html,body{height:100%;margin:0;padding:0} 
+body{background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+nav{background:#0d0f14;border-bottom:1px solid #1a1f2e;padding:0}
+nav .wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;padding:16px 20px}
+nav a{color:#b8c5d6;text-decoration:none;font-weight:600;font-size:16px;transition:color 0.2s,transform 0.2s;display:inline-block}
+nav a:hover{color:#fff;transform:translateY(-2px)}
+nav a.active{color:var(--accent);font-weight:700}
+
+header{position:sticky;top:0;z-index:20;background:#0b0c10;border-bottom:1px solid #161c27}
+.wrap{max-width:1200px;margin:0 auto;padding:18px 20px}
+header .wrap{display:flex;flex-direction:column;align-items:center}
+
+.badge{display:flex;align-items:center;gap:8px;background:#141a1f;border:1px solid #22304a;color:#fff;padding:6px 10px;border-radius:999px}
+.badge .check{display:inline-block;width:18px;height:18px;border-radius:50%;background:#22c55e;position:relative}
+.badge .check:after{content:'';position:absolute;left:3px;top:3px;width:9px;height:5px;border:2px solid #0b0c10;border-top:none;border-right:none;transform:rotate(-45deg)}
+.badge .vbold{font-weight:800}
+
+.brandblock{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.tagline{font-size:18px;color:#dffbff;text-shadow:0 0 12px rgba(109,247,255,.45)}
+.lease-callout{font-size:40px;font-style:italic;background:linear-gradient(90deg,#5bb1ff,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600;margin-top:-4px}
+
+.cta{margin:14px 0 16px}
+.cta a{display:inline-block;background:var(--accent);color:#fff;font-weight:800;border-radius:10px;padding:10px 16px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s}
+.cta a:hover{background:#1d4ed8;transform:translateY(-2px)}
+
+main{padding:40px 20px 80px}
+main .wrap{max-width:1000px}
+
+.bundle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(450px,1fr));gap:24px;margin-top:30px}
+.bundle-card{background:var(--card);border:1px solid var(--edge);border-radius:16px;padding:24px;padding-bottom:50px;position:relative;transition:all 0.3s ease}
+.bundle-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 12px 24px rgba(59,130,246,0.2)}
+.bundle-title{font-size:22px;font-weight:800;color:#fff;margin:0 0 8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.bundle-title .icon{font-size:24px}
+.bundle-desc{color:var(--muted);font-size:14px;margin:0 0 16px;line-height:1.6}
+.bundle-domains{list-style:none;padding:0;margin:16px 0}
+.bundle-domains li{padding:8px 12px;margin:6px 0;background:#0f1420;border:1px solid #1c2230;border-radius:8px;color:var(--text);font-weight:600;font-size:14px;transition:all 0.2s}
+.bundle-domains li:hover{background:#1a2338;border-color:#3a4a6a}
+.bundle-price{font-size:18px;font-weight:800;color:var(--accent);margin:16px 0 12px}
+.bundle-cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;border-radius:10px;padding:10px 20px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s;width:100%;text-align:center}
+.bundle-cta:hover{background:#1d4ed8;transform:translateY(-2px)}
+.badge-featured{display:inline-block;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+.badge-new{display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:#fff;padding:4px 10px;border-radius:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+
+.lock-indicator{position:absolute;bottom:12px;right:16px;font-size:20px;opacity:0.7;transition:opacity 0.2s}
+.bundle-card:hover .lock-indicator{opacity:1}
+
+.intro{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:30px;margin-bottom:30px;text-align:center}
+.intro h2{color:var(--accent);margin:0 0 8px;font-size:2rem}
+.intro .last-updated{color:var(--muted);font-size:13px;font-style:italic;margin:8px 0 16px}
+.intro p{color:var(--text);line-height:1.8;margin:0;font-size:16px}
+
+footer{background:var(--card);border-top:1px solid var(--edge);padding:40px 20px;margin-top:60px}
+footer .wrap{max-width:900px;text-align:center}
+footer h3{color:var(--accent);margin:0 0 16px}
+footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
+
+@keyframes gradientShift {0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+@keyframes gradientShiftVertical {0%{background-position:center 0%}50%{background-position:center 100%}100%{background-position:center 0%}}
+
+@media(max-width:960px){.bundle-grid{grid-template-columns:1fr}}
+@media(max-width:500px){.bundle-card{padding:20px;padding-bottom:50px}.bundle-title{font-size:18px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="bundles.html" class="nav-bundles active">Bundles</a>
+    <a href="leasing.html" class="nav-leasing">Leasing</a>
+    <a href="featured.html" class="nav-featured">Featured Names</a>
+    <a href="faq.html" class="nav-faq">FAQ</a>
+    <a href="mission.html" class="nav-mission">Mission</a>
+    <a href="roadmap.html" class="nav-roadmap">Roadmap</a>
+    <a href="about.html" class="nav-about">About</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="brandblock">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center">
+        <div style="text-align:center">
+          <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:5.5rem;letter-spacing:0.5px;color:white;margin:0">
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">B</span><span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">uy</span>
+            <span style="background:linear-gradient(180deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:100% 200%;animation:gradientShiftVertical 3s ease-in-out infinite">ETH</span>
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">address</span>
+          </h1>
+          <div class="lease-callout">or Lease!</div>
+        </div>
+        <div class="badge" title="Hardware wallet protected">
+          <span class="check"></span>
+          <div>
+            <div class="vbold">Verified</div>
+            <div style="color:#ffffff">Secured by Ledger</div>
+          </div>
+        </div>
+      </div>
+      <div class="tagline">Own your identity. Own your name.</div>
+      <div style="margin:20px 0">
+        <div style="color:#cfe1ff;font-size:15px;margin-bottom:12px">📧 <strong>Contact us for bundles or direct communication</strong></div>
+        <div style="display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">
+          <a href="mailto:buyethaddress@outlook.com" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s">
+            <span>📧</span>
+            <span>buyethaddress@outlook.com</span>
+          </a>
+          <a href="https://discord.gg/n28Q5Y9h" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#5865F2;color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid #4752C4;transition:all 0.2s">
+            <span>💬</span>
+            <span>Join Discord</span>
+          </a>
+        </div>
+        <div style="color:#9aa0a6;font-size:12px">⚠️ Emails with attachments will be deleted.</div>
+      </div>
+      <div class="cta"><a href="https://opensea.io/buyethaddress.eth" target="_blank" rel="noopener noreferrer">View All on OpenSea</a></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="intro">
+    <h2>🎁 Curated Domain Bundles</h2>
+    <div class="last-updated">Last Updated: 12-25-25</div>
+    <p>Get everything you need to launch your Web3 project. Each bundle includes carefully selected domains that work together to create complete infrastructure solutions. <strong>🔒🔒🔒 Triple-lock</strong> and <strong>🔒🔒 double-lock</strong> bundles are premium complete verticals priced above individual value. <strong>Standard bundles</strong> show 20% savings when purchased together.</p>
+  </div>
+
+  <div class="bundle-grid">
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">💧</span>
+        Data Center Water Crisis Solution
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete end-to-end solution for data center water management from problem identification through compliance and optimization.</div>
+      <ul class="bundle-domains">
+        <li>datacenterwastewater.eth</li>
+        <li>zeroliquiddischarge.eth</li>
+        <li>wateriot.eth</li>
+        <li>wastewatercompliance.eth</li>
+        <li>wateranalytics.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 26.4 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Data%20Center%20Water%20Crisis%20Solution%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🌊</span>
+        Water Infrastructure Platform
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Comprehensive municipal and industrial water management covering infrastructure monitoring, regulatory compliance, and sustainability solutions.</div>
+      <ul class="bundle-domains">
+        <li>waterinfrastructure.eth</li>
+        <li>digitalwater.eth</li>
+        <li>watercompliance.eth</li>
+        <li>waterloss.eth</li>
+        <li>waterreuse.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 25.0 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Water%20Infrastructure%20Platform%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🚀</span>
+        Developer Deployment Stack
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete deployment workflow infrastructure from code development through API and cloud deployment to node operations.</div>
+      <ul class="bundle-domains">
+        <li>deploycode.eth</li>
+        <li>deployapi.eth</li>
+        <li>deploynode.eth</li>
+        <li>deploycloud.eth</li>
+        <li>apiframework.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 22.5 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Developer%20Deployment%20Stack%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">⚙️</span>
+        Code Workflow Developer Toolkit
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete development cycle infrastructure covering the full Git-style workflow from data pull through merge and debugging.</div>
+      <ul class="bundle-domains">
+        <li>pulldata.eth</li>
+        <li>pushdata.eth</li>
+        <li>mergecode.eth</li>
+        <li>debugcode.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 8.75 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 7.0 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 1.75 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Code%20Workflow%20Developer%20Toolkit%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🎓</span>
+        Web3 Discovery & Onboarding Suite
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete user journey infrastructure from Web3 discovery through exploration phases to final certification and verification.</div>
+      <ul class="bundle-domains">
+        <li>discoverweb3.eth</li>
+        <li>discoverdefi.eth</li>
+        <li>discoveryphase.eth</li>
+        <li>web3certified.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 12.6 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 10.08 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 2.52 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Web3%20Discovery%20&%20Onboarding%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">⚡</span>
+        Layer2 Infrastructure Complete
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete Layer 2 infrastructure stack including registry, framework, and sequencing for rollup operations.</div>
+      <ul class="bundle-domains">
+        <li>layer2suite.eth</li>
+        <li>layer2registry.eth</li>
+        <li>rollupframework.eth</li>
+        <li>rollupinfra.eth</li>
+        <li>rollupnetwork.eth</li>
+        <li>layer2platform.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 52.32 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Layer2%20Infrastructure%20Complete%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">✅</span>
+        Complete Validator Business
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete validator business operations from service delivery through infrastructure, audit, pool management, and registry.</div>
+      <ul class="bundle-domains">
+        <li>validatorservice.eth</li>
+        <li>validatorinfrastructure.eth</li>
+        <li>validatoraudit.eth</li>
+        <li>validatorpool.eth</li>
+        <li>validatorregistry.eth</li>
+        <li>stakingplatform.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 27.31 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Complete%20Validator%20Business%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">⚕️</span>
+        Medical DApp Complete Package
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete healthcare vertical covering clinical, laboratory, pharmacy operations with health registry and identity management.</div>
+      <ul class="bundle-domains">
+        <li>clinicsuite.eth</li>
+        <li>labsuite.eth</li>
+        <li>pharmacysuite.eth</li>
+        <li>medicalsuite.eth</li>
+        <li>healthregistry.eth</li>
+        <li>healthidentity.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 35.48 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Medical%20DApp%20Complete%20Package%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🔄</span>
+        Staking & Restaking Infrastructure
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete staking and restaking infrastructure including liquid restaking, registry systems, and audit framework.</div>
+      <ul class="bundle-domains">
+        <li>stakingsuite.eth</li>
+        <li>validatorsuite.eth</li>
+        <li>stakingregistry.eth</li>
+        <li>stakingaudit.eth</li>
+        <li>liquidrestaking.eth</li>
+        <li>activerestaking.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 27.88 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Staking%20&%20Restaking%20Infrastructure%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🔍</span>
+        Complete Audit Suite
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Comprehensive audit infrastructure covering smart contracts, protocols, and compliance verification.</div>
+      <ul class="bundle-domains">
+        <li>auditsuite.eth</li>
+        <li>auditplatform.eth</li>
+        <li>smartcontractaudit.eth</li>
+        <li>protocolaudit.eth</li>
+        <li>complianceaudit.eth</li>
+        <li>contractaudits.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 26.2 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Complete%20Audit%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">💼</span>
+        SaaS Platform Complete
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete SaaS business operations covering platform infrastructure, analytics, metrics, billing, and payment systems.</div>
+      <ul class="bundle-domains">
+        <li>saassuite.eth</li>
+        <li>saasplatform.eth</li>
+        <li>saasanalytics.eth</li>
+        <li>saasmetrics.eth</li>
+        <li>saasbilling.eth</li>
+        <li>saaspayments.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 18.0 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=SaaS%20Platform%20Complete%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🛠️</span>
+        Developer Workspace Complete
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete developer environment covering suite, workspace, infrastructure, panel, and compute resources.</div>
+      <ul class="bundle-domains">
+        <li>developersuite.eth</li>
+        <li>devworkspace.eth</li>
+        <li>devinfra.eth</li>
+        <li>devsuite.eth</li>
+        <li>devpanel.eth</li>
+        <li>devcompute.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 11.85 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Developer%20Workspace%20Complete%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">💵</span>
+        Stablecoin Regulatory Suite
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete stablecoin compliance and regulatory framework including registry and identity management systems.</div>
+      <ul class="bundle-domains">
+        <li>stablecoincompliance.eth</li>
+        <li>stablecoinframework.eth</li>
+        <li>stablecoinregistry.eth</li>
+        <li>stablecoinframe.eth</li>
+        <li>stableframework.eth</li>
+        <li>stablecoinidentity.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 107.0 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 85.6 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 21.4 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Stablecoin%20Regulatory%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">💳</span>
+        Financial Compliance Suite
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete financial compliance infrastructure covering PCI, payments, chargebacks, AML framework, and banking audit.</div>
+      <ul class="bundle-domains">
+        <li>pcicompliance.eth</li>
+        <li>paymentcompliance.eth</li>
+        <li>chargebackcompliance.eth</li>
+        <li>amlframework.eth</li>
+        <li>financialaudit.eth</li>
+        <li>bankaudit.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 31.0 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Financial%20Compliance%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">⚖️</span>
+        Regulated DeFi Compliance Platform
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete institutional-grade compliance infrastructure for regulated DeFi and ERC-3643 security token operations.</div>
+      <ul class="bundle-domains">
+        <li>regulateddefi.eth</li>
+        <li>kyccompliance.eth</li>
+        <li>regsecurities.eth</li>
+        <li>compliancedao.eth</li>
+        <li>complianttoken.eth</li>
+        <li>permissionedswap.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 50.0 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Regulated%20DeFi%20Compliance%20Platform%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🏥</span>
+        Industry-Specific Compliance
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Vertical-specific compliance solutions covering healthcare, gaming, metaverse, real-world assets, privacy, and data.</div>
+      <ul class="bundle-domains">
+        <li>healthcompliance.eth</li>
+        <li>gamecompliance.eth</li>
+        <li>metaversecompliance.eth</li>
+        <li>realworldcompliance.eth</li>
+        <li>privacycompliance.eth</li>
+        <li>datacompliance.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 37.1 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 29.68 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 7.42 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Industry-Specific%20Compliance%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">💻</span>
+        Crypto Tax & Optimization Platform
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete crypto tax infrastructure covering software, compliance, optimization, tracking, reporting, and professional CPA services.</div>
+      <ul class="bundle-domains">
+        <li>cryptotaxsuite.eth</li>
+        <li>cryptotaxsoftware.eth</li>
+        <li>cryptotaxcompliance.eth</li>
+        <li>cryptotaxoptimizer.eth</li>
+        <li>cryptotaxcpa.eth</li>
+        <li>cryptotaxadvisor.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 46.32 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Crypto%20Tax%20&%20Optimization%20Platform%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🎁</span>
+        DeFi Compliance & Audit Platform
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete DeFi compliance infrastructure covering crypto compliance suite, KYC integration, and exchange audit systems.</div>
+      <ul class="bundle-domains">
+        <li>cryptocompliancesuite.eth</li>
+        <li>defikyc.eth</li>
+        <li>identityaudit.eth</li>
+        <li>corporateaudit.eth</li>
+        <li>regulatoraudit.eth</li>
+        <li>walletaudit.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 21.26 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=DeFi%20Compliance%20&%20Audit%20Platform%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🏢</span>
+        Enterprise Compliance Suite
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Enterprise compliance operations covering suite, platform, and dashboard infrastructure.</div>
+      <ul class="bundle-domains">
+        <li>compliancesuite.eth</li>
+        <li>complianceplatform.eth</li>
+        <li>compliancedashboard.eth</li>
+        <li>identitycompliance.eth</li>
+        <li>kycframework.eth</li>
+        <li>kycattestation.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 17.04 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 13.63 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 3.41 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Enterprise%20Compliance%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🔐</span>
+        DeFi Protocol Suite
+        
+      </div>
+      <div class="bundle-desc">Complete DeFi protocol infrastructure covering suite, framework, registry, dashboard, and workspace.</div>
+      <ul class="bundle-domains">
+        <li>defisuite.eth</li>
+        <li>defiframework.eth</li>
+        <li>defiregistry.eth</li>
+        <li>defidashboard.eth</li>
+        <li>defiworkspace.eth</li>
+        <li>defitaxtools.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 52.77 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=DeFi%20Protocol%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">⚡</span>
+        ZK Rollup Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Complete zero-knowledge rollup infrastructure including ZK-EVM, prover nodes, and rollup operations.</div>
+      <ul class="bundle-domains">
+        <li>zkrollupinfra.eth</li>
+        <li>zkevmrollup.eth</li>
+        <li>zkprovernode.eth</li>
+        <li>zkrollupprover.eth</li>
+        <li>zkrollupapi.eth</li>
+        <li>zkevminfra.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 39.2 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=ZK%20Rollup%20Infrastructure%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🤖</span>
+        AI Agent Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Complete AI agent ecosystem covering suite, framework, registry, network, and swarm coordination.</div>
+      <ul class="bundle-domains">
+        <li>agentsuite.eth</li>
+        <li>aiframework.eth</li>
+        <li>aiagentregistry.eth</li>
+        <li>aiagentnetwork.eth</li>
+        <li>aiagentswarm.eth</li>
+        <li>agenticaisuite.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 61.88 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=AI%20Agent%20Infrastructure%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">⚡</span>
+        Sequencer Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Complete sequencer operations infrastructure covering registry, services, hub, API, engine, and rollup integration.</div>
+      <ul class="bundle-domains">
+        <li>sequencerregistry.eth</li>
+        <li>sequencerservices.eth</li>
+        <li>sequencerhub.eth</li>
+        <li>sequencerapi.eth</li>
+        <li>sequencerengine.eth</li>
+        <li>rollupsequencer.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 31.25 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Sequencer%20Infrastructure%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🆔</span>
+        Identity & Registry Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Complete on-chain registry infrastructure covering Ethereum, addresses, nodes, contracts, and applications.</div>
+      <ul class="bundle-domains">
+        <li>onchainregistry.eth</li>
+        <li>ethereumregistry.eth</li>
+        <li>addressregistry.eth</li>
+        <li>noderegistry.eth</li>
+        <li>contractregistry.eth</li>
+        <li>appregistry.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 24.5 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 19.6 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 4.9 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Identity%20&%20Registry%20Infrastructure%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🏠</span>
+        Real World Assets (RWA)
+        
+      </div>
+      <div class="bundle-desc">Complete real-world asset tokenization infrastructure covering finance, payments, utility, compliance, suite, and platform.</div>
+      <ul class="bundle-domains">
+        <li>realworldfinance.eth</li>
+        <li>realworldpayments.eth</li>
+        <li>realworldutility.eth</li>
+        <li>rwasuite.eth</li>
+        <li>rwaplatform.eth</li>
+        <li>rwainsurance.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 23.9 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 19.12 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 4.78 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Real%20World%20Assets%20(RWA)%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">✅</span>
+        Infrastructure Audit & Security
+        
+      </div>
+      <div class="bundle-desc">Complete infrastructure audit operations covering restaking, exchange, wallet, and banking security verification.</div>
+      <ul class="bundle-domains">
+        <li>restakingaudit.eth</li>
+        <li>exchangeaudit.eth</li>
+        <li>solidityaudit.eth</li>
+        <li>amlverification.eth</li>
+        <li>pushnotify.eth</li>
+        <li>restakinginfrastructure.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 27.35 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Infrastructure%20Audit%20&%20Security%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🌉</span>
+        Cross-Chain Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Complete cross-chain and omnichain infrastructure covering protocol, bridge, DeFi, staking, and restaking.</div>
+      <ul class="bundle-domains">
+        <li>crosschainlayer.eth</li>
+        <li>omnichainprotocol.eth</li>
+        <li>omnichainbridge.eth</li>
+        <li>omnichaindefi.eth</li>
+        <li>omnichainstaking.eth</li>
+        <li>crosschainrestaking.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 18.6 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Cross-Chain%20Infrastructure%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">💻</span>
+        Solidity Development Suite
+        
+      </div>
+      <div class="bundle-desc">Complete Solidity development environment covering tools, suite, agent assistance, code management, and summit resources.</div>
+      <ul class="bundle-domains">
+        <li>soliditytools.eth</li>
+        <li>soliditysuite.eth</li>
+        <li>solidityagent.eth</li>
+        <li>soliditycode.eth</li>
+        <li>soliditysummit.eth</li>
+        <li>shipcode.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 14.5 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Solidity%20Development%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🛡️</span>
+        Insurance & Coverage Suite
+        
+      </div>
+      <div class="bundle-desc">Complete crypto insurance infrastructure covering general suite, platform, bridge, wallet, and slashing protection.</div>
+      <ul class="bundle-domains">
+        <li>insurancesuite.eth</li>
+        <li>cryptoinsurancesuite.eth</li>
+        <li>insuranceplatform.eth</li>
+        <li>bridgeinsurance.eth</li>
+        <li>walletinsurance.eth</li>
+        <li>slashinginsurance.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 20.71 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Insurance%20&%20Coverage%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🏢</span>
+        Enterprise Automation Suite
+        
+      </div>
+      <div class="bundle-desc">Complete enterprise automation covering general automation, workflow, financial, and security automation systems.</div>
+      <ul class="bundle-domains">
+        <li>enterpriseautomation.eth</li>
+        <li>automationsuite.eth</li>
+        <li>automatesuite.eth</li>
+        <li>workflowsuite.eth</li>
+        <li>financialautomation.eth</li>
+        <li>securityautomation.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 15.63 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 12.5 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 3.13 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Enterprise%20Automation%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">📄</span>
+        Contract Management Platform
+        
+      </div>
+      <div class="bundle-desc">Complete contract management infrastructure covering suite, registry, interface, deployment, chain, and verification.</div>
+      <ul class="bundle-domains">
+        <li>contractsuite.eth</li>
+        <li>contractinterface.eth</li>
+        <li>contractdeploy.eth</li>
+        <li>contractchain.eth</li>
+        <li>contractverified.eth</li>
+        <li>securemint.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 11.72 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 9.38 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 2.34 ETH (19% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Contract%20Management%20Platform%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🛠️</span>
+        SDK & API Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Complete SDK and API development infrastructure covering suite, builder, gateway, workspace, service, and verification.</div>
+      <ul class="bundle-domains">
+        <li>sdksuite.eth</li>
+        <li>apibuilder.eth</li>
+        <li>sdkgateway.eth</li>
+        <li>sdkworkspace.eth</li>
+        <li>sdkservice.eth</li>
+        <li>apiverified.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 15.45 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 12.36 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 3.09 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=SDK%20&%20API%20Infrastructure%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🌐</span>
+        Omnichain DeFi Suite
+        
+      </div>
+      <div class="bundle-desc">Complete omnichain DeFi infrastructure covering assets, bridge, lending, liquidity, and NFT operations.</div>
+      <ul class="bundle-domains">
+        <li>omnichainassets.eth</li>
+        <li>omnichainlending.eth</li>
+        <li>omnichainliquidity.eth</li>
+        <li>omnichainnft.eth</li>
+        <li>rwaapp.eth</li>
+        <li>builddao.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 13.8 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 11.04 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 2.76 ETH (20% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Omnichain%20DeFi%20Suite%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🏢</span>
+        Data Center Infrastructure
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete data center operations covering US and international markets, cloud infrastructure, and deployment systems.</div>
+      <ul class="bundle-domains">
+        <li>datacentres.eth</li>
+        <li>usadatacenter.eth</li>
+        <li>data-centers.eth</li>
+        <li>cloudinfrastructure.eth</li>
+        <li>deployapp.eth</li>
+        <li>deployweb.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 35.0 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Data%20Center%20Infrastructure%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🎯</span>
+        Specialized Tax Solutions
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Specialized tax vertical solutions covering capital gains, sales tax, VAT, NFT, payroll, and SaaS taxation.</div>
+      <ul class="bundle-domains">
+        <li>capitalgainstax.eth</li>
+        <li>cryptosalestax.eth</li>
+        <li>cryptovat.eth</li>
+        <li>nfttaxtools.eth</li>
+        <li>payrolltax.eth</li>
+        <li>saastax.eth</li>
+      </ul>
+      <div class="bundle-price" style="line-height:1.6">
+        <div style="color:#9aa0a6;font-size:14px;text-decoration:line-through">Individual Total: 28.52 ETH</div>
+        <div style="font-size:20px;font-weight:800;color:#22c55e;margin:4px 0">Bundle Price: 22.81 ETH</div>
+        <div style="color:#22c55e;font-size:14px">💰 Save 5.7 ETH (19% off)</div>
+      </div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Specialized%20Tax%20Solutions%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">💎</span>
+        Membership Tier Suite
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete membership tier infrastructure covering gold, platinum, silver, diamond, and elite membership levels for premium service tiers.</div>
+      <ul class="bundle-domains">
+        <li>goldsuite.eth</li>
+        <li>platinumsuite.eth</li>
+        <li>silversuite.eth</li>
+        <li>diamondsuite.eth</li>
+        <li>elitesuite.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 6.17 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Membership%20Tier%20Suite%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🏛️</span>
+        Real World Assets Platform
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete real-world asset tokenization ecosystem covering custody, securities, real estate, governance, and institutional infrastructure.</div>
+      <ul class="bundle-domains">
+        <li>custodyplatform.eth</li>
+        <li>custodyprotocol.eth</li>
+        <li>realworldfinance.eth</li>
+        <li>realworldgovernance.eth</li>
+        <li>realworldinfra.eth</li>
+        <li>regsecurities.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 37.65 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Real%20World%20Assets%20Platform%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🔐</span>
+        Privacy & Confidential Infrastructure
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete privacy-first infrastructure covering confidential DeFi, anonymous protocols, privacy bridges, and medical privacy systems.</div>
+      <ul class="bundle-domains">
+        <li>anonymousprotocol.eth</li>
+        <li>confidentialdefi.eth</li>
+        <li>confidentialregistry.eth</li>
+        <li>medicalprivacy.eth</li>
+        <li>privacybridge.eth</li>
+        <li>privacycompliance.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 23.56 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Privacy%20&%20Confidential%20Infrastructure%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">📈</span>
+        Perpetuals & Derivatives Trading
+        <span class="badge-new">Hot Topic</span>
+      </div>
+      <div class="bundle-desc">Complete perpetuals and derivatives trading infrastructure covering DEX, contracts, platforms, and specialized trading tools.</div>
+      <ul class="bundle-domains">
+        <li>derivativesdex.eth</li>
+        <li>derivativesuite.eth</li>
+        <li>perpetualsuite.eth</li>
+        <li>perpscontract.eth</li>
+        <li>perpssuite.eth</li>
+        <li>perpstools.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 19.25 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Perpetuals%20&%20Derivatives%20Trading%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🧩</span>
+        Modular Blockchain Infrastructure
+        <span class="badge-featured">Complete Vertical</span>
+      </div>
+      <div class="bundle-desc">Complete modular blockchain infrastructure covering modular rollups, compute systems, and infrastructure layers.</div>
+      <ul class="bundle-domains">
+        <li>modularcompute.eth</li>
+        <li>modularinfra.eth</li>
+        <li>modularinfrastructure.eth</li>
+        <li>modularregistry.eth</li>
+        <li>modularrollups.eth</li>
+        <li>modularwallet.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 19.12 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Modular%20Blockchain%20Infrastructure%20Bundle" class="bundle-cta">Inquire About Bundle</a>
+      <div class="lock-indicator">🔒🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🎮</span>
+        Gaming & Metaverse Platform
+        
+      </div>
+      <div class="bundle-desc">Complete gaming and metaverse infrastructure covering GameFi platforms, gaming frameworks, and virtual world infrastructure.</div>
+      <ul class="bundle-domains">
+        <li>gamefiplatform.eth</li>
+        <li>gameframework.eth</li>
+        <li>gamersuite.eth</li>
+        <li>gamesuite.eth</li>
+        <li>gamingplatform.eth</li>
+        <li>gamingsuite.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 7.79 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Gaming%20&%20Metaverse%20Platform%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">⚛️</span>
+        Quantum-Ready Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Future-proof quantum-resistant infrastructure covering rollups, platforms, protocols, staking, and complete quantum-ready suite.</div>
+      <ul class="bundle-domains">
+        <li>quantumplatform.eth</li>
+        <li>quantumprotocol.eth</li>
+        <li>quantumrollup.eth</li>
+        <li>quantumstaking.eth</li>
+        <li>quantumsuite.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 5.79 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Quantum-Ready%20Infrastructure%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+
+    <div class="bundle-card">
+      <div class="bundle-title">
+        <span class="icon">🏥</span>
+        Healthcare & Medical Infrastructure
+        
+      </div>
+      <div class="bundle-desc">Complete healthcare infrastructure covering clinical suites, health platforms, medical DAOs, and blockchain-based healthcare ledgers.</div>
+      <ul class="bundle-domains">
+        <li>clinicsuite.eth</li>
+        <li>healthframework.eth</li>
+        <li>healthplatform.eth</li>
+        <li>healthsuite.eth</li>
+        <li>medicaldao.eth</li>
+        <li>medicalledger.eth</li>
+      </ul>
+      <div class="bundle-price">Bundle Price: 12.97 ETH</div>
+      <a href="mailto:buyethaddress@outlook.com?subject=Healthcare%20&%20Medical%20Infrastructure%20Bundle" class="bundle-cta">Purchase Bundle</a>
+      <div class="lock-indicator">🔒</div>
+    </div>
+  </div>
+
+  <div class="intro" style="margin-top:40px">
+    <h2>💼 Custom Bundles Available</h2>
+    <p>Don't see exactly what you need? We can create custom domain bundles tailored to your specific project requirements. Contact us to discuss your needs and we'll put together the perfect package.</p>
+    <div style="margin-top:20px">
+      <a href="mailto:buyethaddress@outlook.com?subject=Custom%20Bundle%20Request" style="display:inline-block;background:var(--accent);color:#fff;font-weight:700;border-radius:10px;padding:12px 24px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s">Request Custom Bundle</a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer>
+<div class="wrap">
+  <h3>About BuyETHaddress ENS Marketplace</h3>
+  <p>We specialize in premium Ethereum Name Service domains across multiple categories including DeFi, Web3, staking, gaming, finance, governance, infrastructure, verified services, and registry systems. All ENS names are stored in hardware wallets for maximum security. Make offers on OpenSea or contact us directly for premium acquisitions.</p>
+  <div style="color:var(--muted);font-size:13px">
+    <p style="margin:8px 0">© 2025 buyethaddress.eth - All ENS names verified and secured</p>
+  </div>
+</div>
+</footer>
+
+</body>
+</html>

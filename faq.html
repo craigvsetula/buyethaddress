@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FAQ - BuyETHaddress | Frequently Asked Questions</title>
+<meta name="description" content="Frequently asked questions about buying ENS domains and subdomain leasing from BuyETHaddress. Learn about pricing, transfers, suites, and ENSv2.">
+<style>
+:root{ --bg:#0b0c10; --card:#12151d; --edge:#1c2230; --text:#e6e6e6; --muted:#9aa0a6; --accent:#3b82f6; }
+*{box-sizing:border-box} 
+html,body{height:100%;margin:0;padding:0} 
+body{background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+nav{background:#0d0f14;border-bottom:1px solid #1a1f2e;padding:0}
+nav .wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;padding:16px 20px}
+nav a{color:#b8c5d6;text-decoration:none;font-weight:600;font-size:16px;transition:color 0.2s,transform 0.2s;display:inline-block}
+nav a:hover{color:#fff;transform:translateY(-2px)}
+nav a.active{color:var(--accent);font-weight:700}
+
+header{position:sticky;top:0;z-index:20;background:#0b0c10;border-bottom:1px solid #161c27;padding-top:30px}
+.wrap{max-width:1200px;margin:0 auto;padding:18px 20px}
+header .wrap{display:flex;flex-direction:column;align-items:center}
+
+.badge{display:flex;align-items:center;gap:8px;background:#141a1f;border:1px solid #22304a;color:#fff;padding:6px 10px;border-radius:999px}
+.badge .check{display:inline-block;width:18px;height:18px;border-radius:50%;background:#22c55e;position:relative}
+.badge .check:after{content:'';position:absolute;left:3px;top:3px;width:9px;height:5px;border:2px solid #0b0c10;border-top:none;border-right:none;transform:rotate(-45deg)}
+.badge .vbold{font-weight:800}
+
+.brandblock{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.tagline{font-size:18px;color:#dffbff;text-shadow:0 0 12px rgba(109,247,255,.45)}
+.lease-callout{font-size:40px;font-style:italic;background:linear-gradient(90deg,#5bb1ff,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600;margin-top:-4px}
+
+main{padding:40px 20px 80px}
+main .wrap{max-width:900px}
+
+.faq-intro{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:30px;margin-bottom:30px;text-align:center}
+.faq-intro h2{color:var(--accent);margin:0 0 12px;font-size:2rem}
+.faq-intro p{color:var(--text);line-height:1.8;margin:0;font-size:16px}
+
+.faq-section{margin-bottom:40px}
+.faq-section-title{color:var(--accent);font-size:1.6rem;font-weight:800;margin:0 0 20px;padding-bottom:10px;border-bottom:2px solid var(--edge)}
+
+.faq-item{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:24px;margin-bottom:16px;transition:all 0.3s ease}
+.faq-item:hover{border-color:var(--accent);box-shadow:0 4px 12px rgba(59,130,246,0.1)}
+
+.faq-question{color:#fff;font-size:1.2rem;font-weight:700;margin:0 0 12px;display:flex;align-items:flex-start;gap:10px}
+.faq-question:before{content:'Q:';color:var(--accent);font-weight:800;flex-shrink:0}
+
+.faq-answer{color:var(--text);line-height:1.8;margin:0}
+.faq-answer strong{color:var(--accent)}
+.faq-answer ul{margin:10px 0;padding-left:20px}
+.faq-answer li{margin-bottom:8px}
+.faq-answer a{color:var(--accent);text-decoration:none;transition:color 0.2s}
+.faq-answer a:hover{color:#5b9eff}
+
+footer{background:var(--card);border-top:1px solid var(--edge);padding:40px 20px;margin-top:60px}
+footer .wrap{max-width:900px;text-align:center}
+footer h3{color:var(--accent);margin:0 0 16px}
+footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
+
+@keyframes gradientShift {0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+@keyframes gradientShiftVertical {0%{background-position:center 0%}50%{background-position:center 100%}100%{background-position:center 0%}}
+
+.contact-box{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:24px;margin-top:40px;text-align:center}
+.contact-box h3{color:var(--accent);margin:0 0 12px;font-size:1.4rem}
+.contact-box p{color:var(--text);margin:0 0 16px}
+.contact-box a{display:inline-block;background:var(--accent);color:#fff;font-weight:700;border-radius:10px;padding:12px 24px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s;margin:4px}
+.contact-box a:hover{background:#1d4ed8;transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="suites.html" class="nav-suites">Suites</a>
+    <a href="subdomain-leasing.html" class="nav-subdomain">Subdomain Leasing</a>
+    <a href="featured.html" class="nav-featured">Featured Names</a>
+    <a href="faq.html" class="nav-faq active">FAQ</a>
+    <a href="mission.html" class="nav-mission">Mission</a>
+    <a href="roadmap.html" class="nav-roadmap">Roadmap</a>
+    <a href="about.html" class="nav-about">About</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="brandblock">
+      <div style="position:relative;text-align:center">
+        <div class="badge" title="Hardware wallet protected" style="position:absolute;right:0;top:160px">
+          <span class="check"></span>
+          <div>
+            <div class="vbold">Verified</div>
+            <div style="color:#ffffff">Secured by Ledger</div>
+          </div>
+        </div>
+        <div>
+          <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:5.5rem;letter-spacing:0.5px;color:white;margin:0">
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">B</span><span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">uy</span>
+            <span style="background:linear-gradient(180deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:100% 200%;animation:gradientShiftVertical 3s ease-in-out infinite">ETH</span>
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">address</span>
+          </h1>
+          <div class="lease-callout">or Lease!</div>
+          <div style="font-size:18px;color:#22c55e;font-weight:700;margin-top:4px;text-shadow:0 0 8px rgba(34,197,94,0.3)">Never Connect Your Wallet</div>
+        </div>
+      </div>
+      <div class="tagline">Own your identity. Own your name.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="faq-intro">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about buying domains and leasing subdomains from BuyETHaddress.</p>
+    </div>
+
+    <!-- GENERAL QUESTIONS -->
+    <div class="faq-section">
+      <div class="faq-section-title">General</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What is an ENS domain?</div>
+        <div class="faq-answer">
+          ENS (Ethereum Name Service) domains are human-readable names for Ethereum addresses, like <strong>yourname.eth</strong>. They work like DNS for Web3 - instead of sharing a long hex address, you can use a simple name for payments, websites, and identity.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How many domains does BuyETHaddress have?</div>
+        <div class="faq-answer">
+          We own <strong>1,600+ premium ENS domains</strong> focused on real-world utility. Infrastructure, DeFi, validators, AI agents, compliance, tax, and protocol-level names. Every domain acquired for $5-6 registration during bear market conditions.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Are these domains actually owned by you?</div>
+        <div class="faq-answer">
+          <strong>Yes, 100%.</strong> Every domain is secured in a hardware wallet (Ledger). You can verify ownership on-chain. We don't list domains we don't own.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What makes your domains "premium"?</div>
+        <div class="faq-answer">
+          We focus on <strong>infrastructure and utility terms</strong> - the names protocols actually need: liquidationbot, validatorregistry, zkengine, accountabstraction, slashing, etc. These aren't speculation names - they're functional infrastructure for serious Web3 builders.
+        </div>
+      </div>
+    </div>
+
+    <!-- BUYING & PRICING -->
+    <div class="faq-section">
+      <div class="faq-section-title">Buying & Pricing</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How do I buy a domain?</div>
+        <div class="faq-answer">
+          Simple:
+          <ul>
+            <li>Browse our <a href="index.html">full portfolio</a> or <a href="featured.html">featured names</a></li>
+            <li>Email us at <strong>buyethaddress@outlook.com</strong> with the domain(s) you want</li>
+            <li>We provide pricing and transfer details</li>
+            <li>Payment in ETH, transfer via ENS manager</li>
+            <li>Domain is yours - no wallet connection required</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How much do domains cost?</div>
+        <div class="faq-answer">
+          Pricing varies by domain utility and market positioning. Listed prices are in ETH on each domain card. Our prices are already competitive due to our <strong>massive portfolio size and $5 acquisition costs</strong>. Contact us for specific domains.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you offer discounts or bundle deals?</div>
+        <div class="faq-answer">
+          <strong>No discounts.</strong> Our prices are already substantially lower than market due to portfolio scale and bear market acquisition timing. Smart contract complexity makes individual-basis discounting impractical. Prices are final.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I negotiate prices?</div>
+        <div class="faq-answer">
+          <strong>No.</strong> Listed prices are firm. We're building long-term relationships with serious Web3 projects - our focus is fair pricing upfront, not negotiation games.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What payment methods do you accept?</div>
+        <div class="faq-answer">
+          <strong>ETH only.</strong> This is ENS - we transact in the native ecosystem currency. Direct wallet-to-wallet transfer, no middlemen, no fiat complications.
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBDOMAIN LEASING -->
+    <div class="faq-section">
+      <div class="faq-section-title">Subdomain Leasing</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can I lease instead of buying?</div>
+        <div class="faq-answer">
+          <strong>Absolutely.</strong> Subdomain leasing is our specialty. Get premium branding like <strong>yourprotocol.zkengine.eth</strong> for a fraction of ownership costs. Check our <a href="subdomain-leasing.html">subdomain leasing page</a> for details.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How does subdomain leasing work?</div>
+        <div class="faq-answer">
+          You get <strong>full control</strong> of a subdomain under our premium parent domain. Set your own records, use it for wallets, websites, contracts - functionally equivalent to owning a primary ENS name. We retain the parent domain ownership.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What are the lease terms?</div>
+        <div class="faq-answer">
+          <strong>Annual leases.</strong> Pay per year, renew as long as you want. Pricing locked at lease initiation - no surprise increases. Cancel anytime, no long-term commitments required. Lease prices range from $50-$1,500/year based on parent domain value.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What happens if I stop paying?</div>
+        <div class="faq-answer">
+          Your subdomain expires and control returns to us. No penalties, no drama. Just like ENS registration renewal - pay to keep it, stop paying and it lapses.
+        </div>
+      </div>
+    </div>
+
+    <!-- TECHNICAL & TRANSFERS -->
+    <div class="faq-section">
+      <div class="faq-section-title">Technical & Transfers</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How is the domain transfer done?</div>
+        <div class="faq-answer">
+          Through the <strong>ENS Manager</strong> interface. We transfer the domain to your address, you accept it. No wallet connection to our site - all transfers happen on-chain through official ENS tooling. Safe, verifiable, standard process.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do I need a special wallet?</div>
+        <div class="faq-answer">
+          Any Ethereum wallet works. MetaMask, Rainbow, Ledger, Trezor - if it holds ETH, it can hold ENS domains. Just needs to support the ENS protocol (basically all do).
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What are ENS renewal fees?</div>
+        <div class="faq-answer">
+          ENS charges annual renewal fees: <strong>$5/year for 5+ character domains, $160/year for 4-character, $640/year for 3-character.</strong> These go to ENS DAO, not us. After you buy a domain from us, you're responsible for renewals.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I use the domain immediately after purchase?</div>
+        <div class="faq-answer">
+          <strong>Yes.</strong> Once transferred, it's yours. Set it as your primary name, point it to contracts, use it for payments - full control immediately.
+        </div>
+      </div>
+    </div>
+
+    <!-- SUITES & ENSv2 -->
+    <div class="faq-section">
+      <div class="faq-section-title">Suites & ENSv2</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What are infrastructure suites?</div>
+        <div class="faq-answer">
+          Curated collections of related domains for complete protocol branding. For example, our <strong>ZK Infrastructure Suite</strong> includes zkengine, zkprover, zkverifier, etc. See our <a href="suites.html">50+ curated suites</a>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I customize a suite?</div>
+        <div class="faq-answer">
+          <strong>Absolutely.</strong> Suites are recommendations, not rigid packages. Want 3 domains from one suite and 2 from another? Done. Build your perfect combination. Contact us to discuss custom packages.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What is ENSv2?</div>
+        <div class="faq-answer">
+          The upcoming ENS protocol upgrade. Enables advanced features like ENS Layer 2, improved subdomains, and better scalability. Our portfolio is positioned for ENSv2 infrastructure needs - baseregistrar, l2validator, ensv2bridge, etc.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I lease subdomains from a suite?</div>
+        <div class="faq-answer">
+          <strong>Yes.</strong> Pick any domains from our suites for subdomain leasing. You get the branding and functionality without buying the entire suite. Lease whatever you need, as long as you need it.
+        </div>
+      </div>
+    </div>
+
+    <!-- TRUST & SECURITY -->
+    <div class="faq-section">
+      <div class="faq-section-title">Trust & Security</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">How do I know this isn't a scam?</div>
+        <div class="faq-answer">
+          <ul>
+            <li><strong>Verify on-chain:</strong> All our domains are publicly visible in our hardware wallet</li>
+            <li><strong>Never connect your wallet:</strong> We use standard ENS transfer process - no site interaction</li>
+            <li><strong>No upfront payment without agreement:</strong> Discuss terms first, pay only when ready</li>
+            <li><strong>ENS is trustless:</strong> Once transferred, the domain is yours. No way to revoke it</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Why should I trust you with a lease?</div>
+        <div class="faq-answer">
+          Subdomain leases are <strong>on-chain smart contract relationships</strong>. Once set up, we can't arbitrarily revoke them. Your subdomain control is cryptographically guaranteed. We're incentivized to maintain long-term lease relationships - that's our business model.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What if you get hacked?</div>
+        <div class="faq-answer">
+          <strong>Hardware wallet security.</strong> Our domains are on a Ledger - offline, airgapped, requires physical confirmation for any transaction. Industry-standard security. No hot wallet vulnerabilities.
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <h3>Still Have Questions?</h3>
+      <p>Get in touch - we respond to every inquiry.</p>
+      <a href="mailto:buyethaddress@outlook.com">📧 buyethaddress@outlook.com</a>
+      <a href="https://discord.gg/n28Q5Y9h" target="_blank" rel="noopener noreferrer">💬 Join Discord</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h3>Ready to Build with Premium ENS?</h3>
+    <p>1,600+ infrastructure domains available for purchase or subdomain leasing. Serious Web3 builders get serious infrastructure.</p>
+    <div style="margin-top:30px">
+      <a href="mailto:buyethaddress@outlook.com" style="display:inline-block;background:var(--accent);color:#fff;font-weight:700;border-radius:10px;padding:12px 24px;text-decoration:none;border:1px solid #2b65c7">Email: buyethaddress@outlook.com</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

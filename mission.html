@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mission & Trust | BuyETHaddress</title>
+<meta name="description" content="Our mission: deliver premium real-world utility ENS domains. Our vision: the trusted gateway for Web3 identity.">
+<!-- SHARED STYLES AND HEADER FOR ALL PAGES -->
+<style>
+:root{ --bg:#0b0c10; --card:#12151d; --edge:#1c2230; --text:#e6e6e6; --muted:#9aa0a6; --accent:#3b82f6; --premium:#c0c0c0; --premiumDark:#8c8c8c; --brandFrom:#5bb1ff; --brandTo:#8b5cf6; --glow:#6df7ff; }
+*{box-sizing:border-box} 
+html,body{height:100%;margin:0;padding:0} 
+body{background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+/* Navigation */
+nav{background:#0d0f14;border-bottom:1px solid #1a1f2e;padding:0}
+nav .wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;padding:16px 20px}
+nav a{color:#b8c5d6;text-decoration:none;font-weight:600;font-size:16px;transition:color 0.2s,transform 0.2s;display:inline-block}
+nav a:hover{color:#fff;transform:translateY(-2px)}
+nav a.active{color:var(--accent);font-weight:700}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:#0b0c10;border-bottom:1px solid #161c27}
+.wrap{max-width:1200px;margin:0 auto;padding:18px 20px}
+header .wrap{display:flex;flex-direction:column;align-items:center}
+
+/* Badge */
+.badge{display:flex;align-items:center;gap:8px;background:#141a1f;border:1px solid #22304a;color:#fff;padding:6px 10px;border-radius:999px}
+.badge .check{display:inline-block;width:18px;height:18px;border-radius:50%;background:#22c55e;position:relative}
+.badge .check:after{content:'';position:absolute;left:3px;top:3px;width:9px;height:5px;border:2px solid #0b0c10;border-top:none;border-right:none;transform:rotate(-45deg)}
+.badge .vbold{font-weight:800}
+
+/* Brand block */
+.brandblock{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.tagline{font-size:18px;color:#dffbff;text-shadow:0 0 12px rgba(109,247,255,.45)}
+
+/* Lease callout */
+.lease-callout{font-size:40px;font-style:italic;background:linear-gradient(90deg,#5bb1ff,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600;margin-top:-4px}
+
+/* CTA */
+.cta{margin:14px 0 16px}
+.cta a{display:inline-block;background:var(--accent);color:#fff;font-weight:800;border-radius:10px;padding:10px 16px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s}
+.cta a:hover{background:#1d4ed8;transform:translateY(-2px)}
+
+/* Main content */
+main{padding:40px 20px 80px}
+main .wrap{max-width:900px}
+
+/* Content sections */
+.content-section{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:30px;margin-bottom:30px}
+.content-section h2{color:var(--accent);margin:0 0 20px;font-size:1.8rem}
+.content-section h3{color:#fff;margin:30px 0 15px;font-size:1.3rem}
+.content-section p{color:var(--text);line-height:1.8;margin:0 0 15px}
+.content-section ul{color:var(--text);line-height:1.8;margin:0 0 15px;padding-left:25px}
+.content-section li{margin-bottom:8px}
+.content-section strong{color:var(--accent)}
+
+/* Badges */
+.info-badge{display:inline-block;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;padding:6px 12px;border-radius:6px;font-size:13px;font-weight:700;margin:4px}
+
+/* Animations */
+@keyframes gradientShift {0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}
+@keyframes gradientShiftVertical {0%{background-position:center 0%}50%{background-position:center 100%}100%{background-position:center 0%}}
+
+/* Footer */
+footer{background:var(--card);border-top:1px solid var(--edge);padding:40px 20px;margin-top:60px}
+footer .wrap{max-width:900px;text-align:center}
+footer h3{color:var(--accent);margin:0 0 16px}
+footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
+</style>
+
+<!-- SHARED HEADER COMPONENT -->
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="nav-home">Home</a>
+    <a href="suites.html" class="nav-suites">Suites</a>
+    <a href="subdomain-leasing.html" class="nav-subdomain">Subdomain Leasing</a>
+    <a href="featured.html" class="nav-featured">Featured Names</a>
+    <a href="faq.html" class="nav-faq">FAQ</a>
+    <a href="mission.html" class="nav-mission active">Mission</a>
+    <a href="roadmap.html" class="nav-roadmap">Roadmap</a>
+    <a href="about.html" class="nav-about">About</a>
+    <a href="contact.html" class="nav-contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="brandblock">
+      <div style="position:relative;text-align:center">
+        <div class="badge" title="Hardware wallet protected" style="position:absolute;right:0;top:160px">
+          <span class="check"></span>
+          <div>
+            <div class="vbold">Verified</div>
+            <div style="color:#ffffff">Secured by Ledger</div>
+          </div>
+        </div>
+        <div>
+          <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:5.5rem;letter-spacing:0.5px;color:white;margin:0">
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">B</span><span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">uy</span>
+            <span style="background:linear-gradient(180deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:100% 200%;animation:gradientShiftVertical 3s ease-in-out infinite">ETH</span>
+            <span style="background:linear-gradient(90deg,#d4d4d4,#7a7a7a,#d4d4d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;background-size:200% 100%;animation:gradientShift 3s ease-in-out infinite">address</span>
+          </h1>
+          <div class="lease-callout">or Lease!</div>
+          <div style="font-size:18px;color:#22c55e;font-weight:700;margin-top:4px;text-shadow:0 0 8px rgba(34,197,94,0.3)">Never Connect Your Wallet</div>
+        </div>
+
+      </div>
+      <div class="tagline">Own your identity. Own your name.</div>
+      <div style="margin:20px 0">
+        <div style="color:#cfe1ff;font-size:15px;margin-bottom:12px">📧 <strong>Contact us for domains or direct communication</strong></div>
+        <div style="display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">
+          <a href="mailto:buyethaddress@outlook.com" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s">
+            <span>📧</span>
+            <span>buyethaddress@outlook.com</span>
+          </a>
+          <a href="https://discord.gg/n28Q5Y9h" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#5865F2;color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid#4752C4;transition:all 0.2s">
+            <span>💬</span>
+            <span>Join Discord</span>
+          </a>
+        </div>
+        <div style="color:#9aa0a6;font-size:12px">⚠️ Emails with attachments will be deleted.</div>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('.nav-mission').classList.add('active');
+});
+</script>
+</head>
+<body>
+
+<main>
+<div class="wrap">
+
+  <div class="content-section">
+    <h2>Mission & Trust</h2>
+    
+    <h3>Our Mission</h3>
+    <p>Deliver <strong>premium real-world utility domain names</strong> that give startups and institutions identity they can use today — payments, governance, compliance, and infrastructure — with leasing that keeps ownership within reach.</p>
+    
+    <p>We believe ENS domains should be:</p>
+    <ul>
+      <li><strong>Accessible:</strong> Leasing models that lower barriers to entry</li>
+      <li><strong>Secure:</strong> Hardware wallet protection on every name</li>
+      <li><strong>Transparent:</strong> Price lock guarantees with no hidden fees</li>
+      <li><strong>Useful:</strong> Names that serve real business functions, not speculation</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h3>Our Vision</h3>
+    <p>Build the <strong>trusted gateway for ENSv2 infrastructure</strong>: subdomain leasing at scale, infrastructure suite collections, and accessible pricing for Web3 identity.</p>
+    
+    <p>We're positioning BuyETHaddress as the global hub where:</p>
+    <ul>
+      <li>Startups find identity infrastructure at affordable rates</li>
+      <li>Institutions acquire infrastructure suites for Web3 deployment</li>
+      <li>Builders secure names with price protection and clear terms</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h2>⚡ Future-Proof Identity: ENSv2 Benefits</h2>
+    
+    <p>With ENSv2 migrating core functions to Layer-2, names become <strong>cheaper to manage, faster to update, and ready for multi-chain use.</strong></p>
+    
+    <div style="margin:20px 0">
+      <span class="info-badge">⚡ ENSv2 Ready</span>
+    </div>
+    
+    <h3>What ENSv2 Means for You</h3>
+    <ul>
+      <li><strong>Lower Costs:</strong> Affordable leasing and renewals with L2 efficiency</li>
+      <li><strong>Scalable Adoption:</strong> Faster transactions, better user experience</li>
+      <li><strong>Cross-Chain:</strong> One name, any chain — true multi-chain identity</li>
+      <li><strong>Granular Control:</strong> Per-domain registries for advanced permissions</li>
+    </ul>
+    
+    <p>Every name in our portfolio is positioned to benefit from ENSv2's enhanced capabilities, making them not just valuable today, but essential infrastructure for tomorrow's decentralized web.</p>
+  </div>
+
+  <div class="content-section">
+    <h3>Our Values</h3>
+    <ul>
+      <li><strong>Utility First:</strong> No hype, no random NFTs — just names that work</li>
+      <li><strong>Fair Pricing:</strong> Protecting builders from domain squatters and blackmail pricing</li>
+      <li><strong>Institutional Ready:</strong> Professional infrastructure for serious adoption</li>
+      <li><strong>Long-Term Vision:</strong> Building for the next decade of Web3</li>
+    </ul>
+  </div>
+
+  <div class="content-section">
+    <h3>Why We Do This</h3>
+    <p>The domain market has too many speculators buying generic names hoping for quick flips. We're different.</p>
+    
+    <p>We focus on <strong>infrastructure suites and utility domains</strong> that developers and institutions actually need:</p>
+    <ul>
+      <li>Infrastructure Suites (cryptosuite.eth, web3suite.eth, defisuite.eth, agentsuite.eth)</li>
+      <li>Payment infrastructure (paymentrails.eth, streamingpayments.eth)</li>
+      <li>Validator networks (validatorpool.eth, dvtprotocol.eth, slashing.eth)</li>
+      <li>Tax compliance (cryptotaxsuite.eth, cryptotaxcompliance.eth, capitalgainstax.eth)</li>
+      <li>AI agent standards (agentsuite.eth, autonomousagentic.eth)</li>
+      <li>ENS infrastructure (baseregistrar.eth, ethereumregistry.eth)</li>
+    </ul>
+    
+    <p>These aren't vanity names. They're <strong>infrastructure</strong>.</p>
+  </div>
+
+  <!-- TRUST & TRANSPARENCY SECTION -->
+  <div class="content-section" style="border:2px solid var(--accent);">
+    <h2>Trust & Transparency</h2>
+    
+    <h3>Who Runs This</h3>
+    <p>BuyETHaddress is operated by one person who spent 90 days (since Oct. 2025) building a curated portfolio of 1600+ premium ENS domains focused on utility, not speculation. Every domain listed here is owned and controlled by me.</p>
+    
+    <h3>Security</h3>
+    <p>All domains are secured on Ledger hardware wallets. No custodial services. No third-party control. You can verify ownership onchain - every domain's ENS record links back to this site.</p>
+    
+    <h3>Why This Exists</h3>
+    <p>I'm building a serious ENS marketplace for developers, protocols, and businesses who need the right domain name. This isn't a quick-flip operation - it's a long-term portfolio focused on AI, DeFi, infrastructure, and real-world utility.</p>
+    
+    <h3>Pricing & Suites</h3>
+    <p>Individual domains are listed with transparent pricing. Infrastructure suites and subdomain leasing options are available. Custom packages built to your specifications. Need something specific? Contact me directly at <a href="mailto:buyethaddress@outlook.com" style="color:var(--accent
