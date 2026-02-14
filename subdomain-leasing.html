@@ -75,87 +75,25 @@ footer .wrap{max-width:900px;text-align:center}
 footer h3{color:var(--accent);margin:0 0 16px}
 footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
 
-.calculator {
-  background: #1a1f2e;
-  border: 2px solid var(--accent);
-  border-radius: 14px;
-  padding: 30px;
-  margin: 30px 0;
-}
+
 .calculator h3 {
   color: var(--accent);
   margin: 0 0 20px;
   text-align: center;
 }
 
-.calc-input {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  justify-content: center;
-}
-.calc-input input {
-  background: var(--bg);
-  border: 1px solid var(--edge);
-  color: var(--text);
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 18px;
-  width: 150px;
-  text-align: center;
-  font-weight: 700;
-}
-.calc-input input:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-.calc-input label {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
-}
-.calc-results {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 20px;
-}
-.calc-result-card {
-  background: var(--bg);
-  border: 1px solid var(--edge);
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-}
-.calc-result-card h4 {
-  color: var(--accent);
-  margin: 0 0 10px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.calc-result-card .price {
-  font-size: 32px;
-  font-weight: 800;
-  color: #fff;
-  margin: 10px 0;
-}
-.calc-result-card .usd {
-  font-size: 20px;
-  color: var(--muted);
-  margin-left: 5px;
-}
-.calc-result-card .note {
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 8px;
-}
+
+
+
+
+
+
+
+
+
+
 @media(max-width: 640px) {
-  .calc-results {
-    grid-template-columns: 1fr;
-  }
-}
+  
 </style>
 </head>
 <body>
@@ -198,20 +136,6 @@ footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
 
       </div>
       <div class="tagline">Own your identity. Own your name.</div>
-      <div style="margin:20px 0">
-        <div style="color:#cfe1ff;font-size:15px;margin-bottom:12px">📧 <strong>Contact us for domains or direct communication</strong></div>
-        <div style="display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:12px">
-          <a href="mailto:buyethaddress@outlook.com" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid #2b65c7;transition:all 0.2s">
-            <span>📧</span>
-            <span>buyethaddress@outlook.com</span>
-          </a>
-          <a href="https://discord.gg/n28Q5Y9h" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;background:#5865F2;color:#fff;font-weight:700;border-radius:8px;padding:8px 14px;text-decoration:none;border:1px solid#4752C4;transition:all 0.2s">
-            <span>💬</span>
-            <span>Join Discord</span>
-          </a>
-        </div>
-        <div style="color:#9aa0a6;font-size:12px">⚠️ Emails with attachments will be deleted.</div>
-      </div>
     </div>
   </div>
 </header>
@@ -225,12 +149,12 @@ footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
     <p>ENS subdomains give you a recognized identity in the Web3 ecosystem without purchasing the full parent domain. Perfect for protocols, DAOs, infrastructure projects, and businesses building on Ethereum.</p>
     
     <h3>What ENSv2 Enables for Subdomain Leasing</h3>
-    <p>The upcoming <strong>ENSv2 and Namechain</strong> migration (launching Q1 2026) fundamentally changes how subdomains work:</p>
+    <p>The upcoming <strong>ENSv2</strong> migration (launching 2026) fundamentally changes how subdomains work:</p>
     <ul>
       <li><strong>Hierarchical Registries:</strong> Each .eth name gets its own smart contract registry, giving true ownership control at the subdomain level</li>
       <li><strong>Custom Permissions:</strong> Name owners can delegate subdomain issuance, set expiry rules, and create flexible renewal terms without parent intervention</li>
       <li><strong>Trustless Rentals:</strong> Built-in "fuses" allow locking subdomain control for guaranteed renewal periods - tenants can't be rugged mid-lease</li>
-      <li><strong>99% Lower Gas Costs:</strong> Namechain L2 makes subdomain registration and renewals dramatically cheaper than Ethereum mainnet</li>
+      <li><strong>99% Lower Gas Costs with Fusaka Upgrade: ENSv2 on Ethereum L1 makes subdomain operations dramatically more affordable</li>
       <li><strong>Stablecoin Payments:</strong> ENSv2 supports USD-denominated payments (USDC, etc.) eliminating ETH price volatility</li>
       <li><strong>Cross-Chain Resolution:</strong> Universal Resolver lets your subdomain work seamlessly across Ethereum, L2s, and other chains</li>
     </ul>
@@ -338,22 +262,7 @@ footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
     </div>
   </div>
 
-  <div class="calculator">
-    <h3>💰 Subdomain Lease Cost Calculator</h3>
-    <p style="text-align:center;color:var(--muted);margin-bottom:20px">See projected annual lease costs based on parent domain listing price.<br/>Pricing structure will be finalized closer to ENSv2/Namechain launch.</p>
-    
-    <div class="calc-input">
-      <label for="domainPrice">Parent Domain Price:</label>
-      <input type="number" id="domainPrice" min="0" step="0.01" placeholder="0.00" />
-      <span style="color:var(--muted);font-weight:700">ETH</span>
-    </div>
-    
-    <div class="calc-results">
-      <div class="calc-result-card">
-        <h4>Annual Subdomain Lease</h4>
-        <div class="price">$<span id="annualCost">0</span><span class="usd">/year</span></div>
-        <div class="note">Fixed USD rate based on parent domain tier</div>
-      </div>
+  
     </div>
   </div>
 
@@ -371,14 +280,13 @@ footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
   <div class="content-section">
     <h3>Terms & Conditions (Post-ENSv2)</h3>
     <ul>
-      <li><strong>Payment:</strong> Annual lease in USD stablecoin (USDC preferred) on Namechain L2</li>
-      <li><strong>Renewals:</strong> Guaranteed renewal rights at locked rates - parent cannot revoke if "CANNOT_UNWRAP" fuse is burned</li>
+      <li><strong>Payment:</strong> Annual lease in USD stablecoin (USDC preferred) on ENSv2 on Ethereum L1</li>
+      <li><strong>Renewals:</strong> Guaranteed renewal rights via fuses - parent cannot revoke subdomain if "PARENT_CANNOT_CONTROL" fuse is burned. Renewal pricing set by registrar contract.</li>
       <li><strong>Control:</strong> Full subdomain control including resolver, records, and transfer rights (emancipated subname)</li>
       <li><strong>Expiry Extension:</strong> You can extend your subdomain expiry independently if parent enables "CAN_EXTEND_EXPIRY"</li>
       <li><strong>No Royalties:</strong> Use subdomain for any business purpose without additional fees</li>
-      <li><strong>Cross-Chain:</strong> Subdomain resolves across Ethereum L1, Namechain, and other L2s via Universal Resolver</li>
-      <li><strong>Upgrade Path:</strong> Option to purchase parent domain at current listing price</li>
-      <li><strong>Termination:</strong> If renewal payment fails after 30-day grace period, parent may reclaim subdomain</li>
+      <li><strong>Cross-Chain:</strong> Subdomain resolves across Ethereum L1 and L2s via ENSv2 Universal Resolver</li>
+      <li><strong>Expiration:</strong> Subdomain expires if not renewed. Parent can reclaim expired subdomains.</li>
     </ul>
   </div>
 
@@ -388,7 +296,7 @@ footer p{color:var(--muted);line-height:1.7;margin:0 0 20px}
       <li>Browse available parent domains and current pricing</li>
       <li>Contact us with desired subdomain name and parent domain</li>
       <li>We configure the parent domain's registry contract with your custom subdomain settings</li>
-      <li>Pay annual lease fee in USDC on Namechain (99% cheaper gas than L1)</li>
+      <li>Pay annual lease fee in USDC on Ethereum (99% lower gas costs with Fusaka upgrade)</li>
       <li>Receive emancipated subdomain with guaranteed renewal rights</li>
       <li>Set your subdomain resolver, records, and addresses - you have full control</li>
       <li>Renew annually via automated contract or manual payment</li>
@@ -460,23 +368,4 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (ethPrice < 10.0) {
       usdCost = 1000;
     } else if (ethPrice < 12.0) {
-      usdCost = 1200;
-    } else if (ethPrice < 15.0) {
-      usdCost = 1500;
-    } else {
-      usdCost = 2500;
-    }
-    
-    annualCost.textContent = usdCost;
-  }
-  
-  input.addEventListener('input', calculate);
-  
-  // Initialize
-  input.value = '2.5';
-  calculate();
-});
-</script>
-
-</body>
-</html>
+      usdCost = 12
