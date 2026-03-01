@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ENS Ontology — The Authoritative Classification System for ENS Domains | ENSv2 Marketplace™</title>
+<meta name="description" content="The ENS ontology: a structured 30-category, 275-subcategory classification system for ENS domains. The semantic layer powering discovery, pricing, agent routing, and protocol classification across the ENS namespace.">
+<meta name="keywords" content="ENS ontology, ENS taxonomy, ENS classification, ENS naming standards, ENS categories, ENS real world utility, ENS domain structure, ENS semantic layer, ENSv2 ontology">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.ensv2marketplace.com/ens-ontology.html">
+<meta property="og:title" content="ENS Ontology — The Authoritative Classification System for ENS Domains">
+<meta property="og:description" content="30 categories · 275 subcategories · 4,450 domains classified. The semantic blueprint of the ENS namespace.">
+<meta property="og:url" content="https://www.ensv2marketplace.com/ens-ontology.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ENS Ontology — The Authoritative ENS Classification System">
+<meta name="twitter:description" content="30 categories · 275 subcategories. The semantic layer that organizes the entire ENS namespace into real-world utility verticals.">
+<style>
+:root{ --bg:#0b0c10; --card:#12151d; --edge:#1c2230; --text:#e6e6e6; --muted:#9aa0a6; --accent:#b8964f; }
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+nav{background:#0d0f14;border-bottom:1px solid #1a1f2e;padding:0}
+nav .wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;padding:16px 20px;flex-wrap:wrap}
+nav a{color:#b8c5d6;text-decoration:none;font-weight:600;font-size:15px;transition:color 0.2s,transform 0.2s;display:inline-block}
+nav a:hover{color:#fff;transform:translateY(-2px)}
+nav a.active{color:var(--accent);font-weight:700}
+
+header{background:#0b0c10;border-bottom:1px solid #161c27;padding-top:30px}
+.wrap{max-width:1200px;margin:0 auto;padding:18px 20px}
+header .wrap{display:flex;flex-direction:column;align-items:center}
+.badge{display:flex;align-items:center;gap:8px;background:#141a1f;border:1px solid #22304a;color:#fff;padding:6px 10px;border-radius:999px}
+.badge .check{display:inline-block;width:18px;height:18px;border-radius:50%;background:#22c55e;position:relative}
+.badge .check:after{content:'';position:absolute;left:3px;top:3px;width:9px;height:5px;border:2px solid #0b0c10;border-top:none;border-right:none;transform:rotate(-45deg)}
+.badge .vbold{font-weight:800}
+.brandblock{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.tagline{font-size:18px;color:#dffbff;text-shadow:0 0 12px rgba(109,247,255,.45)}
+
+main{padding:40px 20px 80px}
+main .wrap{max-width:1200px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,rgba(184,150,79,0.12),rgba(91,177,255,0.06));border:2px solid var(--accent);border-radius:16px;padding:40px 30px;text-align:center;margin-bottom:40px}
+.hero h2{color:#fff;font-size:2.4rem;font-weight:800;margin:0 0 10px}
+.hero .sub{font-size:1.1rem;color:var(--muted);margin:0 0 20px}
+.stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:20px}
+.stat{text-align:center}
+.stat-num{font-size:2.2rem;font-weight:800;color:var(--accent)}
+.stat-label{font-size:13px;color:var(--muted);margin-top:2px}
+
+/* Sections */
+.section{background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:30px;margin-bottom:30px}
+.section h2{color:var(--accent);margin:0 0 16px;font-size:1.7rem}
+.section h3{color:#fff;margin:24px 0 12px;font-size:1.2rem}
+.section p{color:var(--text);line-height:1.8;margin:0 0 14px}
+
+/* Cluster map */
+.cluster{margin-bottom:28px}
+.cluster-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:10px;padding:4px 10px;border-left:3px solid var(--accent)}
+.onto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+
+.onto-card{background:#0f1420;border:1px solid var(--edge);border-radius:8px;padding:12px;cursor:pointer;user-select:none;transition:border-color 0.15s}
+.onto-card:hover,.onto-card.open{border-color:var(--accent)}
+.onto-card.tier-high{border-left:3px solid #ef4444}
+.onto-card.tier-mid{border-left:3px solid #f59e0b}
+.onto-card.tier-low{border-left:3px solid #22c55e}
+.onto-num{font-size:10px;color:var(--muted);font-weight:700;margin-bottom:3px}
+.onto-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.3}
+.onto-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.onto-tier{font-size:10px;font-weight:700}
+.onto-count{font-size:10px;color:var(--muted)}
+.onto-subs{display:none;list-style:none;margin:10px 0 0;padding:10px;background:#070910;border-radius:6px;border:1px solid #22304a}
+.onto-card.open .onto-subs{display:block}
+.onto-subs li{font-size:11px;color:#b8c5d6;padding:3px 0;border-bottom:1px solid #0d1018}
+.onto-subs li:last-child{border-bottom:none}
+
+/* Identity chain */
+.chain-section{background:#0a0d15;border:1px solid #22304a;border-radius:12px;padding:24px;margin-top:20px}
+.chain-section h3{color:#fff;margin:0 0 12px}
+.chain{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0}
+.chain-node{background:#12151d;border:1px solid var(--accent);border-radius:8px;padding:12px 14px;text-align:center;min-width:110px}
+.chain-node strong{display:block;color:var(--accent);font-size:14px;margin-bottom:3px}
+.chain-node span{display:block;font-size:11px;color:var(--muted);margin-bottom:4px}
+.chain-node em{display:block;font-size:10px;color:#5b8dd6;font-style:normal}
+.chain-arrow{color:var(--accent);font-size:20px;font-weight:700}
+
+/* Use cases */
+.use-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:16px}
+.use-card{background:#0f1420;border:1px solid var(--edge);border-radius:10px;padding:18px}
+.use-icon{font-size:1.8rem;margin-bottom:8px}
+.use-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+.use-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* Why it matters */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.why-card{background:#0a0d15;border-left:3px solid var(--accent);padding:16px;border-radius:0 8px 8px 0}
+.why-card h4{color:var(--accent);margin:0 0 8px;font-size:14px}
+.why-card p{color:var(--muted);font-size:13px;line-height:1.6;margin:0}
+
+footer{background:var(--card);border-top:1px solid var(--edge);padding:40px 20px;margin-top:60px}
+footer .wrap{max-width:900px;text-align:center}
+footer h3{color:var(--accent);margin:0 0 16px}
+footer p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+
+@media(max-width:600px){
+  .onto-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .chain{flex-direction:column;align-items:flex-start}
+  .chain-arrow{transform:rotate(90deg)}
+  .stats{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html">Home</a>
+    <a href="featured.html">Featured Names</a>
+    <a href="suites.html">Suites</a>
+    <a href="subdomain-leasing.html">Subdomain Leasing</a>
+    <a href="faq.html">FAQ</a>
+    <a href="mission.html">Mission</a>
+    <a href="roadmap.html">Roadmap</a>
+    <a href="about.html">About</a>
+    <a href="consignment.html">Consignment</a>
+    <a href="resources.html">Resources</a>
+    <a href="pricing-guide.html">Pricing Guide</a>
+    <a href="ens-ontology.html" class="active">ENS Ontology</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="brandblock">
+      <div style="position:relative;text-align:center">
+        <div class="badge" title="Hardware wallet protected" style="position:absolute;right:-100px;top:50px">
+          <span class="check"></span>
+          <div>
+            <div class="vbold">Verified</div>
+            <div style="color:#ffffff">Secured by Ledger</div>
+          </div>
+        </div>
+        <div>
+          <div style="display:inline-block;position:relative">
+            <h1 style="font-family:'Inter',sans-serif;font-weight:700;font-size:8rem;letter-spacing:0.5px;color:#b8964f;margin:0">ENSv2</h1>
+            <div style="position:absolute;bottom:20px;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,#b8964f,transparent)"></div>
+          </div>
+          <h2 style="font-family:'Inter',sans-serif;font-weight:700;font-size:4rem;letter-spacing:0.5px;color:#9aa0a6;margin:-25px 0 0 0">Marketplace<sup style="font-size:1.5rem;vertical-align:super;margin-left:4px">™</sup></h2>
+          <div style="font-size:22px;color:#b8964f;font-weight:700;margin-top:12px">Official Enterprise-grade Real World utility ENS domains</div>
+          <div style="font-size:18px;color:#b8964f;font-weight:700;margin-top:8px">ENSv2 Hierarchical Subdomain System Coming 2026</div>
+          <div style="font-size:18px;color:#6c757d;font-weight:700;margin-top:12px">Never Connect Your Wallet Here!</div>
+        </div>
+      </div>
+      <div class="tagline">Own your identity. Own your name.</div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2>🧠 The ENS Ontology</h2>
+    <div class="sub">The authoritative semantic classification system for ENS domains — built by ENSv2 Marketplace™</div>
+    <p style="color:var(--muted);max-width:700px;margin:0 auto 20px;font-size:14px;line-height:1.7">No one had built a structured, machine-readable classification system for the ENS namespace. Every name existed in isolation — no categories, no relationships, no semantic layer. We built the ontology that changes that.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">30</div><div class="stat-label">Categories</div></div>
+      <div class="stat"><div class="stat-num">275</div><div class="stat-label">Subcategories</div></div>
+      <div class="stat"><div class="stat-num">4,450</div><div class="stat-label">Domains Classified</div></div>
+      <div class="stat"><div class="stat-num">15</div><div class="stat-label">Value Tiers</div></div>
+    </div>
+  </div>
+
+  <!-- DEFINITION -->
+  <div class="section">
+    <h2>📖 What Is the ENS Ontology?</h2>
+    <p>An ontology is a formal classification of knowledge — a structured system that defines concepts, categories, and relationships within a domain. The <strong>ENS Ontology</strong> is the first formal classification system for ENS domain names.</p>
+    <p>It organizes the entire ENS namespace into <strong>30 top-level categories</strong> and <strong>275 subcategories</strong>, each mapped to real-world industries, protocol primitives, and infrastructure verticals. Every domain in the ENSv2 Marketplace™ portfolio is assigned to a primary subcategory that directly drives its score, pricing, and lease rate.</p>
+    <p>The ontology is the semantic backbone of the marketplace — it powers discovery, pricing, bundling, agent routing, and protocol classification. It is the structure that turns a chaotic namespace into an organized, machine-readable infrastructure layer.</p>
+
+    <div class="why-grid" style="margin-top:20px">
+      <div class="why-card"><h4>Why It Exists</h4><p>ENS names have no native structure. Without an ontology, every name is just a string. The ENS Ontology gives every name meaning, context, and position within the broader Web3 infrastructure stack.</p></div>
+      <div class="why-card"><h4>Who Uses It</h4><p>Developers, founders, analysts, and AI agents who need to discover, price, filter, or route ENS names by function — not just by string pattern.</p></div>
+      <div class="why-card"><h4>How It's Built</h4><p>Each category maps to a real-world industry or protocol vertical. Each subcategory defines a specific function within that vertical. Domain assignment is deterministic — not subjective.</p></div>
+      <div class="why-card"><h4>Why It Matters for ENSv2</h4><p>ENSv2's hierarchical subdomain system needs a semantic layer. The ontology defines which names anchor which infrastructure — making subdomain leasing logical, not arbitrary.</p></div>
+    </div>
+  </div>
+
+  <!-- CATEGORY MAP -->
+  <div class="section">
+    <h2>🗺️ The Category Map</h2>
+    <p>30 top-level categories organized into functional clusters. <strong>Hold any card to reveal its subcategories.</strong> 🔴 Core = highest-volume infrastructure · 🟡 Primary = major verticals · 🟢 Vertical = specialized domains</p>
+    
+      <div class="cluster">
+        <div class="cluster-label">Core Protocol Infrastructure</div>
+        <div class="onto-grid"><div class="onto-card tier-high" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 1</div>
+            <div class="onto-name">🤖 AI & Agents</div>
+            <div class="onto-meta"><span class="onto-tier">🔴 Core</span> <span class="onto-count">19 subcategories · 480 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>AI Infrastructure & Models</li><li>AI Agent Networks & Registries</li><li>Agentic Systems & Operations</li><li>Agent Coordination & Control</li><li>Agent Marketplaces & Tooling</li><li>Autonomous Systems</li><li>AI Services & Applications</li><li>Neural Networks & Processing</li><li>AGI Frameworks</li><li>Autonomous Infrastructure Verbs</li><li>Agent Types - Data & Analytics</li><li>Agent Types - Workflow & Operations</li><li>Agent Types - Financial Services</li><li>Agent Types - Governance & Access</li><li>Agent Types - Messaging & Bridge</li><li>Agent Types - Compliance & Security</li><li>AI Processing Infrastructure</li><li>Curation & Social AI Systems</li><li>Coordination Mechanisms</li></ul>
+        </div><div class="onto-card tier-high" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 2</div>
+            <div class="onto-name">🔗 Blockchain Infrastructure</div>
+            <div class="onto-meta"><span class="onto-tier">🔴 Core</span> <span class="onto-count">18 subcategories · 520 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Layer 1 Protocols</li><li>Layer 2 Solutions</li><li>Optimistic Rollups</li><li>ZK Rollups & Validity Proofs</li><li>Based Rollups</li><li>Application-Specific L2s</li><li>L2 Infrastructure & Operations</li><li>Rollup-as-a-Service</li><li>Sequencer Services</li><li>Validators & Nodes</li><li>Consensus & Security</li><li>Cross-chain & Bridges</li><li>Network Services</li><li>RPC Provider Services</li><li>MEV & Block Building</li><li>ENSv2 Infrastructure</li><li>Censorship Resistance</li><li>Account Abstraction</li></ul>
+        </div><div class="onto-card tier-high" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 3</div>
+            <div class="onto-name">🛠️ Developer Tools & Frameworks</div>
+            <div class="onto-meta"><span class="onto-tier">🔴 Core</span> <span class="onto-count">15 subcategories · 364 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>SDKs & Libraries</li><li>APIs & Gateways</li><li>Testing & Debugging</li><li>Deployment Tools</li><li>Code Development</li><li>Developer Workspaces</li><li>SDK & Client Management</li><li>Workflow & Pipeline Tools</li><li>Router Pattern Infrastructure</li><li>Executor Pattern Infrastructure</li><li>Orchestrator Pattern Infrastructure</li><li>Engine & Processor Infrastructure</li><li>Gateway, Hub & Endpoint Infra</li><li>Handler & Dispatcher Infrastructure</li><li>Manager & Controller Infrastructure</li></ul>
+        </div><div class="onto-card tier-mid" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 4</div>
+            <div class="onto-name">📜 Smart Contracts & Security</div>
+            <div class="onto-meta"><span class="onto-tier">🟡 Primary</span> <span class="onto-count">7 subcategories · 174 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Contract Development</li><li>Security Audits</li><li>Audit Services by Type</li><li>Contract Deployment</li><li>Contract Standards</li><li>Verification Services</li><li>Contract Management & Execution</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 9</div>
+            <div class="onto-name">⛏️ Restaking, Staking & Slashing</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">10 subcategories · 149 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Restaking Protocols</li><li>Liquid Restaking</li><li>Restaking Infrastructure</li><li>Security Services</li><li>Slashing Protection</li><li>Validator Services</li><li>Restaking Coordination</li><li>Staking Coordination</li><li>Liquidation Infrastructure</li><li>Keeper & Health Monitoring</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 26</div>
+            <div class="onto-name">🌐 Cross-chain & Interoperability</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">8 subcategories · 51 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Bridge Protocols</li><li>Cross-chain Messaging</li><li>Chain Abstraction</li><li>Omnichain Infrastructure</li><li>Cross-chain Liquidity</li><li>Interoperability Standards</li><li>Cross-chain Identity</li><li>Multi-chain Governance</li></ul>
+        </div></div>
+      </div>
+      <div class="cluster">
+        <div class="cluster-label">Identity, Access & Compliance</div>
+        <div class="onto-grid"><div class="onto-card tier-high" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 6</div>
+            <div class="onto-name">🆔 Identity & Credentials</div>
+            <div class="onto-meta"><span class="onto-tier">🔴 Core</span> <span class="onto-count">15 subcategories · 302 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Decentralized Identity</li><li>Credentials & Attestations</li><li>KYC & Compliance Identity</li><li>Identity Verification</li><li>Reputation Systems</li><li>Registry Services</li><li>Rights & Access Control</li><li>Jurisdictional Identity</li><li>Credential Management Systems</li><li>Government & Healthcare IDs</li><li>Reputation Scoring & Attestation</li><li>Trust & Enforcement Infrastructure</li><li>Domain-Specific Identity Systems</li><li>Domain-Specific Ledgers</li><li>Certification & Verification Services</li></ul>
+        </div><div class="onto-card tier-mid" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 7</div>
+            <div class="onto-name">🔒 Privacy, Security & ZK</div>
+            <div class="onto-meta"><span class="onto-tier">🟡 Primary</span> <span class="onto-count">14 subcategories · 156 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Zero-Knowledge Proofs</li><li>ZK Infrastructure</li><li>zkVM Infrastructure</li><li>zkWasm Infrastructure</li><li>ZK Protocols & General</li><li>zkEVM Infrastructure</li><li>Prover Services & Proof Generation</li><li>Privacy Protocols</li><li>Encryption & Key Management</li><li>Post-Quantum Cryptography</li><li>Confidential Computing</li><li>RLN Rate-Limit Nullifiers</li><li>ZK General Infrastructure</li><li>Censorship Resistance & Mempools</li></ul>
+        </div><div class="onto-card tier-mid" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 16</div>
+            <div class="onto-name">🏢 Enterprise, Compliance & Legal</div>
+            <div class="onto-meta"><span class="onto-tier">🟡 Primary</span> <span class="onto-count">13 subcategories · 298 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Enterprise Solutions</li><li>Compliance & Regulatory</li><li>Enterprise SaaS & Biz Tools</li><li>Institutional Finance & Treasury</li><li>AML/KYC Services</li><li>Press & Communications</li><li>AML Infrastructure</li><li>KYC Infrastructure</li><li>Fintech Compliance</li><li>Audit & Verification Infra</li><li>Tax & Accounting Infrastructure</li><li>Legal Infrastructure</li><li>Jurisdictional Compliance</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 19</div>
+            <div class="onto-name">⚕️ Healthcare & BioTech</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">4 subcategories · 40 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Medical Infrastructure & Systems</li><li>Clinical & Patient Services</li><li>Healthcare Compliance & Identity</li><li>Healthcare Finance & Benefits</li></ul>
+        </div></div>
+      </div>
+      <div class="cluster">
+        <div class="cluster-label">Finance, DeFi & Risk</div>
+        <div class="onto-grid"><div class="onto-card tier-high" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 8</div>
+            <div class="onto-name">💸 Payments, Finance & DeFi</div>
+            <div class="onto-meta"><span class="onto-tier">🔴 Core</span> <span class="onto-count">18 subcategories · 361 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Lending & Borrowing</li><li>DEXs & Trading</li><li>Liquidity & Yield</li><li>Liquidity Provision</li><li>Yield Farming & Optimization</li><li>Stablecoins & Payments</li><li>Derivatives & Perpetuals</li><li>Payment Rails & Settlement</li><li>DeFi Automation & Bots</li><li>Streaming Infrastructure</li><li>Intents & Order Flow</li><li>Intents & Order Flow</li><li>Stablecoin Infrastructure</li><li>Swap & Collateral Infrastructure</li><li>Trading & Market Making</li><li>Portfolio & Fund Management</li><li>Payment Protocols & P2P</li><li>Payment Central Services</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 10</div>
+            <div class="onto-name">🏪 Marketplaces & Exchanges</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">6 subcategories · 62 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>NFT Marketplaces</li><li>DEX Platforms</li><li>P2P & OTC</li><li>Exchange Infrastructure</li><li>Trading Tools</li><li>ENS Registry & Renewal Infra</li></ul>
+        </div><div class="onto-card tier-mid" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 17</div>
+            <div class="onto-name">🛡️ Finance, Insurance & Risk</div>
+            <div class="onto-meta"><span class="onto-tier">🟡 Primary</span> <span class="onto-count">17 subcategories · 239 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Insurance & Coverage</li><li>Risk Management & Fraud</li><li>Banking & Lending Platforms</li><li>Treasury & Capital Management</li><li>Treasury Operations</li><li>Capital Management</li><li>Retirement Plans & Admin</li><li>401k & Defined Contribution</li><li>IRA & Individual Retirement</li><li>Benefits Administration</li><li>Investment & Asset Management</li><li>Risk Infrastructure</li><li>Account & Wallet Management</li><li>Custody Services</li><li>Settlement & Clearing Infra</li><li>Banking Operations</li><li>Digital Banking Charters</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 21</div>
+            <div class="onto-name">🏛️ Real-World Assets</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">5 subcategories · 111 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Asset Tokenization & Management</li><li>Real Estate & Property Tech</li><li>RWA Infrastructure & Workflows</li><li>Rental & Leasing Infrastructure</li><li>Property Management</li></ul>
+        </div></div>
+      </div>
+      <div class="cluster">
+        <div class="cluster-label">Data, AI & Emerging Tech</div>
+        <div class="onto-grid"><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 5</div>
+            <div class="onto-name">📊 Data, Oracles & Analytics</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">9 subcategories · 135 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Oracle Networks & Feeds</li><li>Data Indexing & Query</li><li>Analytics & Dashboards</li><li>Data Aggregation</li><li>Data Services & APIs</li><li>Data Transport Infrastructure</li><li>Metrics & Performance Tracking</li><li>Index Infrastructure</li><li>Oracle Validators & Provers</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 23</div>
+            <div class="onto-name">🔬 Experimental & Emerging</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">6 subcategories · 87 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>AI/Agentic Convergence</li><li>Omnichain Infrastructure</li><li>Post-Quantum & Advanced Crypto</li><li>AGI & Advanced AI Systems</li><li>Consumer Crypto & Travel</li><li>ERC Standards & New Protocols</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 29</div>
+            <div class="onto-name">🤖 AI Safety & Alignment</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">5 subcategories · 27 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>AI Model Auditing & Safety</li><li>AI Governance & Policy</li><li>Responsible AI Infrastructure</li><li>AI Transparency & Explainability</li><li>AI Risk Assessment</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 30</div>
+            <div class="onto-name">🚀 Space & Deep Tech</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">10 subcategories · 55 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Satellite Data & Infrastructure</li><li>Aerospace DePIN</li><li>Scientific Compute & Research</li><li>Deep Tech Protocols</li><li>Agentic Consumer Services</li><li>Transportation & Mobility RWAs</li><li>Aviation & Airspace DePIN</li><li>AI-Driven Compliance Systems</li><li>Data Availability Layer</li><li>Intent Infrastructure</li></ul>
+        </div></div>
+      </div>
+      <div class="cluster">
+        <div class="cluster-label">Enterprise & Real World</div>
+        <div class="onto-grid"><div class="onto-card tier-mid" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 11</div>
+            <div class="onto-name">🚀 SaaS, Suites & Platforms</div>
+            <div class="onto-meta"><span class="onto-tier">🟡 Primary</span> <span class="onto-count">13 subcategories · 260 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Enterprise SaaS</li><li>Business SaaS</li><li>Developer SaaS</li><li>Vertical-Specific SaaS</li><li>Industry-Specific Suites</li><li>Platform Infrastructure</li><li>Cloud Platform Services</li><li>Workspace & Collaboration</li><li>Business Automation</li><li>HR & Workforce Management</li><li>HR Operations & Payroll</li><li>Employee Benefits & Programs</li><li>Loyalty & Rewards Programs</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 12</div>
+            <div class="onto-name">🗳️ Governance, DAOs & Coordination</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">8 subcategories · 107 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>DAO Frameworks</li><li>Voting & Proposals</li><li>Treasury Management</li><li>Governance Tools</li><li>Coordination Platforms</li><li>Governance Infrastructure</li><li>Treasury Coordination</li><li>Rules & Membership Systems</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 18</div>
+            <div class="onto-name">🌍 Energy, Climate & IoT</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">8 subcategories · 61 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Water Infrastructure</li><li>Water DePIN Systems</li><li>Water Treatment & Compliance</li><li>Climate & Carbon Solutions</li><li>Energy DePIN Systems</li><li>IoT & Environmental Monitoring</li><li>Air Quality DePIN Systems</li><li>Industrial IoT & Supply Chain</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 25</div>
+            <div class="onto-name">🔌 DePIN</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">8 subcategories · 50 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Compute & Storage DePIN</li><li>Wireless & Connectivity DePIN</li><li>Mobility & Transportation DePIN</li><li>Energy & Power DePIN</li><li>Environmental Sensors DePIN</li><li>Data & Bandwidth Markets</li><li>DePIN Coordination & Tokenomics</li><li>Physical Infrastructure Protocols</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 27</div>
+            <div class="onto-name">📦 Supply Chain & Trade Finance</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">6 subcategories · 34 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Supply Chain Tracking & Provenance</li><li>Trade Finance & Letters of Credit</li><li>Freight & Logistics</li><li>Customs & Compliance</li><li>Inventory & Warehouse Management</li><li>Supplier & Vendor Management</li></ul>
+        </div></div>
+      </div>
+      <div class="cluster">
+        <div class="cluster-label">Consumer & Community</div>
+        <div class="onto-grid"><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 13</div>
+            <div class="onto-name">👥 Social, Messaging & Community</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">4 subcategories · 51 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Social Networks</li><li>Messaging & Communication</li><li>Community Tools</li><li>Content & Publishing</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 14</div>
+            <div class="onto-name">🎮 Gaming, Metaverse & XR</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">4 subcategories · 26 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Gaming Infrastructure</li><li>Metaverse Platforms</li><li>Gaming Finance & Assets</li><li>Game Development Tools</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 15</div>
+            <div class="onto-name">🎬 Media, Content & IP</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">6 subcategories · 47 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Content Creation & Publishing</li><li>IP & Licensing</li><li>NFTs & Collectibles</li><li>Media Distribution</li><li>Creator Tools</li><li>Creative AI Tools</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 20</div>
+            <div class="onto-name">🎓 Education & Credentials</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">3 subcategories · 16 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Educational Platforms & Learning</li><li>Credentials & Verification</li><li>Academic Identity & Documentation</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 24</div>
+            <div class="onto-name">📦 Miscellaneous & Lifestyle</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">8 subcategories · 104 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Sports & Gaming</li><li>Lifestyle & Wellness</li><li>Food & Beverage</li><li>Automotive & Transportation</li><li>Jewelry & Luxury Goods</li><li>Brand & Vanity Terms</li><li>Transfer Infrastructure</li><li>General Utilities</li></ul>
+        </div><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 28</div>
+            <div class="onto-name">🛒 Consumer & Retail Web3</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">5 subcategories · 26 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Crypto Payments at Point of Sale</li><li>E-commerce & Shopping</li><li>Consumer Loyalty & Rewards</li><li>Consumer Identity & Wallets</li><li>Retail Finance & BNPL</li></ul>
+        </div></div>
+      </div>
+      <div class="cluster">
+        <div class="cluster-label">Generic & Premium</div>
+        <div class="onto-grid"><div class="onto-card tier-low" onmousedown="openCard(this)" onmouseup="closeCard(this)" onmouseleave="closeCard(this)" ontouchstart="openCard(this)" ontouchend="closeCard(this)">
+          <div class="onto-card-front">
+            <div class="onto-num">Cat 22</div>
+            <div class="onto-name">💎 Generic Premium Brand Words</div>
+            <div class="onto-meta"><span class="onto-tier">🟢 Vertical</span> <span class="onto-count">3 subcategories · 57 domains</span></div>
+          </div>
+          <ul class="onto-subs"><li>Luxury & Premium Brands</li><li>Suite/Platform Generic Terms</li><li>Wealth & Finance Generics</li></ul>
+        </div></div>
+      </div>
+  </div>
+
+  <!-- IDENTITY CHAIN -->
+  <div class="section">
+    <h2>🔗 Vertical Breakdowns & Semantic Relationships</h2>
+    <p>The ontology is not just a flat list. Categories have semantic relationships — names in one category depend on, extend, or enable names in adjacent categories. The most important chain in the ontology is the <strong>Identity Stack</strong>.</p>
+    
+      <div class="chain-section">
+        <h3>The Identity Chain — Semantic Relationships</h3>
+        <p>One of the most important structural patterns in the ontology is the identity-to-policy chain. Each layer builds on the last, creating a complete semantic stack for decentralized identity and access management.</p>
+        <div class="chain">
+          <div class="chain-node"><strong>Identity</strong><span>Who you are</span><em>federal-id, national-id, stateid</em></div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node"><strong>Auth</strong><span>Prove it</span><em>authsystem, authgateway</em></div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node"><strong>AuthZ</strong><span>What you can do</span><em>authzengine, permissionregistry</em></div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node"><strong>Access</strong><span>Open the door</span><em>accessorchestrator, accessgateway</em></div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node"><strong>Permission</strong><span>Rules applied</span><em>permissionledger, policyengine</em></div>
+          <div class="chain-arrow">→</div>
+          <div class="chain-node"><strong>Policy</strong><span>Governance layer</span><em>compliancepolicy, auditengine</em></div>
+        </div>
+        <p style="margin-top:16px;color:var(--muted);font-size:14px">Every name in the ENSv2 Marketplace™ ontology maps to a specific node in this chain or one of the 29 other category verticals — creating a machine-readable semantic layer that AI agents, protocols, and enterprise systems can rely on.</p>
+      </div>
+  </div>
+
+  <!-- HOW IT'S USED -->
+  <div class="section">
+    <h2>⚙️ How the Ontology Is Used</h2>
+    <p>The ontology powers every function of the ENSv2 Marketplace™ — from how names are priced to how they are discovered, bundled, and leased.</p>
+    <div class="use-grid"><div class="use-card">
+          <div class="use-icon">🔍</div>
+          <div class="use-title">Discovery</div>
+          <div class="use-desc">Developers search for infrastructure names by category. The ontology routes queries to the right vertical — finding bridgeorchestrator.eth in Cross-chain, not buried in general infrastructure.</div>
+        </div><div class="use-card">
+          <div class="use-icon">💰</div>
+          <div class="use-title">Pricing</div>
+          <div class="use-desc">Score 1–15 maps directly to category tier. Core Protocol Infrastructure names score higher by default. The ontology is the pricing engine.</div>
+        </div><div class="use-card">
+          <div class="use-icon">🤖</div>
+          <div class="use-title">Agent Routing</div>
+          <div class="use-desc">AI agents querying ENS for services use the ontology to route tasks — finding zkprover.eth for proof generation, auditengine.eth for compliance checks.</div>
+        </div><div class="use-card">
+          <div class="use-icon">📦</div>
+          <div class="use-title">Bundling</div>
+          <div class="use-desc">Infrastructure suites are built from ontology clusters — all Cat 2 Blockchain Infrastructure names bundled as a suite for enterprise deployment.</div>
+        </div><div class="use-card">
+          <div class="use-icon">🏷️</div>
+          <div class="use-title">Leasing</div>
+          <div class="use-desc">Subdomain lease rates correlate with ontology tier. Core names command $10,000/yr. Lifestyle verticals start at $100/yr.</div>
+        </div><div class="use-card">
+          <div class="use-icon">🔐</div>
+          <div class="use-title">Identity Systems</div>
+          <div class="use-desc">The identity chain (Cat 6) maps the full stack from decentralized identity to policy enforcement — names that enterprise compliance systems actually need.</div>
+        </div></div>
+  </div>
+
+  <!-- PROTOCOL PRIMITIVES -->
+  <div class="section">
+    <h2>⚡ Protocol Primitives</h2>
+    <p>Protocol primitives are names that define fundamental operations in Web3 infrastructure. They are the highest-scoring names in the ontology — Score 13–15, Category Monopoly tier — because they name things that don't have alternatives.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px">
+      <div style="background:#0f1420;border:1px solid #ef4444;border-radius:8px;padding:12px"><div style="color:#ef4444;font-size:11px;font-weight:700;margin-bottom:6px">ORCHESTRATION</div><div style="font-size:12px;color:#b8c5d6;line-height:1.8">agentorchestrator<br>bridgeorchestrator<br>capitalorchestrator<br>coreorchestrator<br>dataorchestrator</div></div>
+      <div style="background:#0f1420;border:1px solid #f59e0b;border-radius:8px;padding:12px"><div style="color:#f59e0b;font-size:11px;font-weight:700;margin-bottom:6px">IDENTITY</div><div style="font-size:12px;color:#b8c5d6;line-height:1.8">federal-id<br>national-id<br>stateid<br>identitygateway<br>ensv2resolver</div></div>
+      <div style="background:#0f1420;border:1px solid #8b5cf6;border-radius:8px;padding:12px"><div style="color:#8b5cf6;font-size:11px;font-weight:700;margin-bottom:6px">ZK & PROOFS</div><div style="font-size:12px;color:#b8c5d6;line-height:1.8">asicprover<br>zkengine<br>zkprover<br>zkorchestrator<br>proofaggregator</div></div>
+      <div style="background:#0f1420;border:1px solid #22c55e;border-radius:8px;padding:12px"><div style="color:#22c55e;font-size:11px;font-weight:700;margin-bottom:6px">EXECUTION</div><div style="font-size:12px;color:#b8c5d6;line-height:1.8">basedexecutor<br>basedorchestrator<br>rolluporchestrator<br>sequencernode<br>validatorregistry</div></div>
+      <div style="background:#0f1420;border:1px solid #5bb1ff;border-radius:8px;padding:12px"><div style="color:#5bb1ff;font-size:11px;font-weight:700;margin-bottom:6px">CROSS-CHAIN</div><div style="font-size:12px;color:#b8c5d6;line-height:1.8">bridgeorchestrator<br>bridgeverifier<br>omnichainhub<br>chainabstraction<br>interopengine</div></div>
+      <div style="background:#0f1420;border:1px solid #b8964f;border-radius:8px;padding:12px"><div style="color:#b8964f;font-size:11px;font-weight:700;margin-bottom:6px">COMPLIANCE</div><div style="font-size:12px;color:#b8c5d6;line-height:1.8">auditengine<br>complianceaudit<br>amlsystem<br>regulatoryreport<br>bermudaaudit</div></div>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="section" style="border:2px solid var(--accent)">
+    <h2>🌐 Why This Matters for the ENS Ecosystem</h2>
+    <p>The ENS namespace has grown to millions of names with no formal structure. Marketplaces list names alphabetically or by price. There is no semantic layer — no way to know what a name does, what category it belongs to, or how it relates to adjacent names.</p>
+    <p><strong>The ENS Ontology solves this.</strong> It is the first published, structured classification system for ENS that:</p>
+    <ul style="color:var(--text);line-height:2;padding-left:24px;margin:0 0 16px">
+      <li>Assigns every name to a deterministic category and subcategory</li>
+      <li>Maps names to real-world industries and protocol functions</li>
+      <li>Creates a machine-readable layer for AI agents and automated systems</li>
+      <li>Provides a pricing framework grounded in semantic value, not speculation</li>
+      <li>Aligns with ENSv2's hierarchical subdomain architecture</li>
+      <li>Enables structured discovery, filtering, and bundling at scale</li>
+    </ul>
+    <p>As ENSv2 launches and subdomain leasing becomes the dominant use case, the ontology becomes the routing layer — telling systems which names anchor which infrastructure, and what each subdomain namespace is for.</p>
+    <p style="color:var(--accent);font-weight:700">ENSv2 Marketplace™ built this ontology. We published it. We are the authority.</p>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center;margin-top:40px">
+    <a href="pricing-guide.html" style="display:inline-block;background:var(--accent);color:#fff;font-weight:800;border-radius:10px;padding:14px 28px;text-decoration:none;font-size:16px;margin:8px">View the Pricing Guide</a>
+    <a href="index.html" style="display:inline-block;background:#12151d;color:var(--accent);font-weight:800;border-radius:10px;padding:14px 28px;text-decoration:none;font-size:16px;border:2px solid var(--accent);margin:8px">Browse the Marketplace</a>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h3>ENSv2 Marketplace™</h3>
+    <p>The authoritative ENS ontology and premium domain marketplace. All domains secured by Ledger hardware wallets.</p>
+    <p style="font-size:13px">© 2025 ensv2marketplace.eth — All ENS names verified and secured</p>
+  </div>
+</footer>
+
+<script>
+function openCard(el) { el.classList.add('open'); }
+function closeCard(el) { el.classList.remove('open'); }
+</script>
+</body>
+</html>
