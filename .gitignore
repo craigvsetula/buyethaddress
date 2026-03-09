@@ -1,7 +1,0 @@
-#Node
-Node_modules/
-npm-debug.log
-.env
-.next/
-dist/
-out/
